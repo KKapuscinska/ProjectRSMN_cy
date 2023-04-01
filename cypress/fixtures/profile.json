@@ -1,0 +1,31 @@
+{
+    "favouritePath": "profil/ulubione",
+    "paymentsPath": "platnosci/karty-platnicze",
+    "paymentsAddPath": "platnicze/dodaj-karte",
+    "shopEditPath": "edycja-drogerii",
+    "settingsPath": "ustawienia-konta",
+
+
+    "blankFavouritesListInfo": "0 produktów",
+    "favouriteLimitInfo": " / 500 produktów",
+
+    "yourShopHeadline": "Rossmann ",
+    "yourShop": "Twój sklep Rossmann",
+    "city": "Łódź",
+    "yourShopEditBth": "Edytuj",
+    "chooseYourShopHeadline": "Wybierz swój sklep Rossmann",
+    "chooseShop": "Wybierz sklep",
+    "NoShopSelectedHeadline": "Brak wybranej drogerii",
+
+    "NslRossmann": "Newsletter rossmann.pl",
+    "memberKR": "Jesteś Uczestnikiem Klubu Rossmann",
+    "resignsBtn": "Rezygnuję",
+    "rossneCheckboxValidation": "Zaznaczenie tego pola jest wymagane",
+    "joinKR": "Dołącz do Klubu Rossmann!",
+    
+    
+    "removeEmailToast": "Usunięcie adresu e-mail zostało przyjęte do realizacji.",
+    "enrollToNslRossneToast": "Pomyślnie zapisano na newsletter Rossnę!",
+    "enrollToNslToast": "Pomyślnie zapisano na newsletter!",
+    "blankCardFormToast": "Nie możemy dodać Twojej karty płatniczej. \n Sprawdź dane karty i spróbuj ponownie"
+}

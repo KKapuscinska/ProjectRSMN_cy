@@ -1,0 +1,22 @@
+{
+    "firstTile": "Promocje",
+    "secondTile": "Oferty specjalne",
+    "thirdTile": "Strefa wiedzy",
+    "fourthTile": "Czyściochowo dla dzieci",
+
+    "pregnantText": "Osób oczekujących na przyjście dziecka na świat (ciąża)",
+    "babyText": "Rodziców dzieci od urodzenia do ukończenia 3. roku życia (maluch)",
+    "juniorText": "Rodziców dzieci w wieku przedszkolnym i wczesnoszkolnym, do 10. roku życia (junior)",
+
+    "organizerText": "Jesteśmy organizatorem programu",
+    "rossneTagText": "Promocja Rossnę!",
+
+    "specialOffersPath": "rossne/oferty-specjalne",
+    "knowledgeZonePath": "rossne/strefa-wiedzy",
+    "czysciochowoPath": "rossne/czysciochowo",
+
+    "specialOffersHeader": "Oferty specjalne",
+    "knowledgeZomeHeader": "Strefa wiedzy",
+    "czysciochowoHeader": "Czyściochowo dla dzieci"
+
+}

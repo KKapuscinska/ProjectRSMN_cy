@@ -1,0 +1,19 @@
+{
+    "mail": "automation224@gmail.com",
+    "login": "cytest1",
+    "pass": "Tester123",
+    "randomValue": "34475849302",
+    "randomText": "zxcvbtgdld",
+    "letter": "a",
+    "string": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    
+
+
+    "incorrectDataMsg": "Niepoprawne dane logowania.",
+    "tooShortLogin": "Nazwa użytkownika powinna składać się z co najmniej 4 znaków.",
+    "tooShortPass": "Hasło musi zawierać od 8 do 64 znaków.",
+    "emptyLoginMsg": "Proszę wpisać poprawny adres e-mail lub nazwę użytkownika.",
+    "emptyPassMsg": "Proszę wpisać poprawne hasło.",
+
+    "mainPageTitle": "Kosmetyki, Makijaż, Piękno | Drogeria internetowa Rossmann.pl"
+}

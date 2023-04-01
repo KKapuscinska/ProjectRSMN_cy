@@ -1,0 +1,24 @@
+{
+    "firstName": "Krzysztof",
+    "lastName": "Jarzyna",
+    "mail": "krzysztof.jarzyna@xyz.pl",
+    "phone": "123456789",
+    "message": "Kliku kliku kliku kliku kliku kliku...",
+    "tooShortMsg": "Kliku kliku kliku k",
+    
+    "pageTitle": "Skontaktuj się z nami",
+    "rossFullName": "Rossmann Supermarkety Drogeryjne Polska Sp. z o.o.",
+
+    "centralaAdress": "ul. św. Teresy 10991-222 Łódź",
+    "centralaContact": "tel.: +48 42 61 39 100fax: +48 42/61 39 999e-mail: firma@rossmann.com.pl",
+    "centralaInfo": "NIP 727-001-91-83, REGON 470755007KRS 0000048967, XX Wydział KRSw Sądzie Rejonowym dla Łodzi- Śródmieścia w ŁodziKapitał zakładowy: 26 442 891,61 ZŁ",
+
+    "contactFormHeader": "Napisz do nas",
+
+    "companyContactModuleFirstHeader": "Biuro Obsługi Klienta",
+    "companyContactModuleSecondHeader": "Godziny pracy poszczególnych",
+    "companyContactModuleThirdHeader": "Rossmann Regionalne Centra"
+
+
+
+}
