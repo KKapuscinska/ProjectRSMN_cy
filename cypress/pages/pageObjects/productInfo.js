@@ -65,6 +65,34 @@
         return cy.get('.tile-product__add-list-plus')
     }
 
+    getDeliveryWindow()
+    {
+      return cy.get('.modal-body')
+    }
+
+    getDeliveryRowsInDeliveryWindow()
+    {
+      return '.modal-delivery__radio'
+    }
+    getRadioClass()
+    {
+      return '.radio-button'
+    }
+
+    getRadio()
+    {
+      return '.radio'
+    }
+
+    getProductPriceInCart()
+    {
+      return cy.get('.cart-product__current-price')
+    }
+
+    getPriceDetailsInCart()
+    {
+      return cy.get('.price-details__value')
+    }
 
 
 
