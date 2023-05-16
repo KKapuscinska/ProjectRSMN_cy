@@ -5,6 +5,9 @@
     "phone": "123456789",
     "message": "Kliku kliku kliku kliku kliku kliku...",
     "tooShortMsg": "Kliku kliku kliku k",
+    "letter": "a",
+    "digit": "1",
+    
     
     "pageTitle": "Skontaktuj się z nami",
     "rossFullName": "Rossmann Supermarkety Drogeryjne Polska Sp. z o.o.",
@@ -17,8 +20,30 @@
 
     "companyContactModuleFirstHeader": "Biuro Obsługi Klienta",
     "companyContactModuleSecondHeader": "Godziny pracy poszczególnych",
-    "companyContactModuleThirdHeader": "Rossmann Regionalne Centra"
+    "companyContactModuleThirdHeader": "Rossmann Regionalne Centra",
 
+    "sendBtnText": "Wyślij wiadomość",
+    "drugstoreSearchText": " Wyszukaj drogerię",
 
+    "emailLackFeedback": "Proszę podaj adres e-mail.",
+    "emailInvalidFeedback": "Podany adres e-mail nie jest poprawny.",
+    "msgLackFeedback": "Proszę wpisać treść wiadomości",
+    "msgInvalidFeedback": "Wiadomość jest za krótka",
+    "captchaInvalidFeedback": "Proszę wypełnić captchę",
+    "cardNumberLackFeedback": "To pole może zawierać tylko cyfry",
+    "cardNumberInvalidFeedback": "Wpisz poprawny numer karty Rossne (13 cyfr)",
+    "phoneNumberInvalidFeedback": "Wpisz poprawny numer telefonu",
+
+    "category4Description": "Podaj nr katalogowy produktu- znajdziesz go przy produkcie w aplikacji lub na stronie www.rossmann.pl Usprawni to obsługę Twojego zgłoszenia.",
+
+    "category1": "Klub Rossmann",
+    "category2": "Program Rossnę ",
+    "category3": "Promocje",
+    "category4": "Pytanie o produkt",
+    "category5": "Obsługa w drogeriach Rossmann",
+    "category6": "Usługi fotograficzne Cewe/Kodak",
+    "category7": "Logowanie i rejestracja",
+
+    "clubCardNumber": "1112223334445"
 
 }
