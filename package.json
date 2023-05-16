@@ -1,5 +1,6 @@
 {
-  "version": "RossmannProject",
+  "name": "projectrsmn",
+  "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -7,7 +8,8 @@
     "cyrun": "cypress run",
     "cyrun-chrome": "cypress run -b chrome --headless",
     "cyrun-firefox": "cypress run -b firefox --headless",
-    "cyrun-edge": "cypress run -b edge -headless"
+    "cyrun-edge": "cypress run -b edge -headless",
+    "recordDashboardTest": "cypress run --record --key 4e9a318e-39d7-49b5-a23c-87c8c4a3fca9 --reporter mochawesome"
   },
   "author": "Katarzyna Kapuscinska",
   "license": "MIT",
