@@ -1,7 +1,7 @@
 export default 
 {
-    log: ':nth-child(1) > div > #login-user',
-    pass: '.input-group > #login-user',
+    log: '#login-user',
+    pass: '#login-password',
     loginBtn: '.ladda-button',
     
 }

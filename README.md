@@ -98,24 +98,18 @@ Test case 2 - Incorecct Password
 3. Click 'Zaloguj się' button
 4. Verify error message
 
-Test case 3 - Too Short Credentials
+Test case 3 - Too Short Login
 1. Navigate to url 'https://www.rossmann.pl/logowanie'
 2. Enter one letter into the login and password fields
 3. Click 'Zaloguj się' button
 4. Verify error message
 
-Test case 4 - Too Long Password
-1. Navigate to url 'https://www.rossmann.pl/logowanie'
-2. Enter correct login and enter more than 64 characters into the password field
-3. Click 'Zaloguj się' button
-4. Verify error message
-
-Test case 5 - Empty Fields
+Test case 4 - Empty Fields
 1. Navigate to url 'https://www.rossmann.pl/logowanie'
 2. Click 'Zaloguj się' button without entering any crudentials
 3. Verify error messages
 
-Test case 6 - Show Password Functionality
+Test case 5 - Show Password Functionality
 1. Navigate to url 'https://www.rossmann.pl/logowanie'
 2. Enter password
 3. Click 'show password' option

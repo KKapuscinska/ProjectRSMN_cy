@@ -38,12 +38,12 @@ import loginPageSelectors from "./loginPageSelectors";
 
     getLogin()
     {
-        return cy.get(':nth-child(1) > div > #login-user')
+        return cy.get('#login-user')
     }
 
     getPass()
     {
-        return cy.get('.input-group > #login-user')
+        return cy.get('#login-password')
     }
 
     getLoginBtn()
