@@ -1,88 +1,17 @@
-# ProjectRSMN
+# ProjectRSMN 
 
-Project Description
+## **[My Linkedin Profile :speech_balloon:	](https://www.linkedin.com/in/kkapuscinska/)**
 
-The aim of this project is to create and execute a set of automated tests for the www.rossmann.pl web application. 
-It is a project designed for training purposes in the field of test automation, utilizing the Cypress tool.
+Welcome to the "ProjectRSMN" repository! This project aims to create and execute a set of automated tests for the **[Rossmann](https://www.rossmann.pl)** web application. 
+The main goal of this project is to improve my proficiency in test automation by utilizing the powerful **Cypress** testing framework. 
+It has been developed solely by me, showcasing my skills and expertise in test automation.
 
 
 Test scenarios
 Below are some sample test scenarios that have been automated in this project:
 
-    Contact Page tests (8):
 
-
-Contact Page
-
-Test case 1 - Page loads correctly.
-1. Navigate to url 'https://www.rossmann.pl/kontakt'
-2. Verify visibility of map, company/contact information
-3. Check content of company information
-
-Test case 2 - Sending a blank contact form.
-1. Navigate to url 'https://www.rossmann.pl/kontakt'
-2. Click 'Wyślij wiadomość' button
-3. Verify error messages (email, message, captcha)
-
-Test case 3 - Validation of email, phone number and message field.
-1. Navigate to url 'https://www.rossmann.pl/kontakt'
-2. Type letter in email field
-3. Type digit in phone number field
-4. Type <19 characters in message field
-5. Click 'Wyślij wiadomość' button
-6. Verify error messages (phone number, email, message)
-
-Test case 4 - Filling out the contact form.
-1. Navigate to url 'https://www.rossmann.pl/kontakt'
-2. Choose category of message: "Klub Rossmann" 
-3. Type correct values into: First Name, Last Name, Email, Phone number, message, rossmann club card number
-4. Click 'Wyślij wiadomość' button
-5. Verify error messages (captcha)
-
-
-Request category - Stationary drugstore
-
-Test case 1 - Verify "Numer karty klubu" field in "Klub Rossmann" category.
-1. Navigate to url 'https://www.rossmann.pl/kontakt'
-2. Choose category of message: "Drogeria stacjonarna" and "Klub Rossmann" 
-3. Click 'Wyślij wiadomość' button
-4. Verify error messages (rossmann club card number, captcha)
-5. Type letter in field 'Numer karty klubu' and click 'Wyślij wiadomość' button
-6. Verify error messages (rossmann club card number) and clear field
-7. Type digit in field 'Numer karty klubu' and click 'Wyślij wiadomość' button
-8. Verify error messages (rossmann club card number)
-9. Type >13 characters in field 'Numer karty klubu' and click 'Wyślij wiadomość' button
-10. Verify error messages (rossmann club card number)
-11. Type correct value (13 char) and click 'Wyślij wiadomość' button
-12. Verify no error message
-
-Test case 2 - Verify "Numer karty Programu Rossnę!" field in "Program Rossnę!" category.
-1. Navigate to url 'https://www.rossmann.pl/kontakt'
-2. Choose category of message: "Drogeria stacjonarna" and "Program Rossnę!" 
-3. Click 'Wyślij wiadomość' button
-4. Verify error messages (rossmann club card number, captcha)
-5. Type letter in field 'Numer karty klubu' and click 'Wyślij wiadomość' button
-6. Verify error messages (rossmann club card number) and clear field
-7. Type digit in field 'Numer karty klubu' and click 'Wyślij wiadomość' button
-8. Verify error messages (rossmann club card number)
-9. Type >13 characters in field 'Numer karty klubu' and click 'Wyślij wiadomość' button
-10. Verify error messages (rossmann club card number)
-11. Type correct value (13 char) and click 'Wyślij wiadomość' button
-12. Verify no error message
-
-Test case 3 - Verify "Pytanie o produkt" category.
-1. Navigate to url 'https://www.rossmann.pl/kontakt'
-2. Choose category of message: "Drogeria stacjonarna" and "Pytanie o produkt" 
-3. Click 'Wyślij wiadomość' button
-4. Verify no error message
-5. Verify text above 'Number katalogowy produktu' field
-
-Test case 4 - Verify "Usługi fotograficzne Cewe/Kodak" category.
-1. Navigate to url 'https://www.rossmann.pl/kontakt'
-2. Choose category of message: "Drogeria stacjonarna" and "Usługi fotograficzne Cewe/Kodak" 
-3. Verify that there is no field to enter the (card) number 
-
-    Login tests (5):
+## Login tests (5)
 
 
 Test case 1 - Incorecct Login and Password
@@ -115,10 +44,9 @@ Test case 5 - Show Password Functionality
 4. Verify that the password visibility is toggled correctly
 
 
-    Profile tests (29):
+## Profile tests (29)
 
-
-Profile
+### Profile tab:
 
 Test case 1 - User without any favourite products - tab appearance.
 1. Navigate to url 'https://www.rossmann.pl/logowanie'
@@ -142,7 +70,7 @@ Test case 3 - Redirecting to the list of favorite products.
 5. Click 'Zobacz wszystkie' button
 6. Verify url
 
-Purchase history
+### Purchase history tab:
 
 Test case 1 - User without any orders - tab appearance.
 1. Navigate to url 'https://www.rossmann.pl/logowanie'
@@ -159,7 +87,7 @@ Test case 2 - User with order - tab appearance.
 5. Verify invisibility of empty list
 
 
-Favorite
+### Favorite tab:
 
 Test case 1 - User without any favorite products - tab appearance.
 1. Navigate to url 'https://www.rossmann.pl/logowanie'
@@ -182,7 +110,7 @@ Test case 3 - Displaying only promotional products.
 5. Verify the display of promotional prices and omnibus info on all products
 
 
-Rossne
+### Rossne tab:
 
 Test case 1 - Non-Rossnę! Program User Checks Profile for Rossnę! Tab Absence.
 1. Navigate to url 'https://www.rossmann.pl/logowanie'
@@ -228,7 +156,7 @@ Test case 6 - Unsubscribe Rossnę! newsletter.
 6. Verify of success toast message
 
 
-Settings
+### Settings tab:
 
 Test case 1 - Plain user - tab appearance.
 1. Navigate to url 'https://www.rossmann.pl/logowanie'
@@ -353,7 +281,7 @@ Test case 14 - Unsubscribe rossmann.pl newsletter.
 5. Verify of success toast message
 
 
-Payments
+### Payments tab:
 
 Test case 1 - Sending a blank form for adding a payment card.
 1. Navigate to url 'https://www.rossmann.pl/logowanie'
@@ -367,10 +295,9 @@ Test case 1 - Sending a blank form for adding a payment card.
 
 
 
-    Rossne tests (9):
+## Rossne tests (9)
 
-
-Rossne Page tests
+### Rossne Page tests:
 
 Test case 1 - The Rossnę! page - appearance.
 1. Navigate to url 'https://www.rossmann.pl
@@ -415,7 +342,7 @@ Test case 4 - Redirecting to the "Czyściochowo" page.
 7. Verify visibility of Rossne social module, Czyściochowa akademia module and FAQ
 
 
-Rossne Page redirects - Benefits module
+### Rossne Page redirects - Benefits module:
 
 Test case 1 - Redirecting to the Rossnę! promotion.
 1. Navigate to url 'https://www.rossmann.pl
@@ -450,5 +377,78 @@ Test case 4 - Redirecting to the "Czyściochowo" page.
 5. Verify page header
 6. Verify visibility of 6 animation heroes
 7. Verify visibility of Rossne social module, Czyściochowa akademia module and FAQ
+
+
+## Contact Page tests (8)
+
+### Contact Page:
+
+Test case 1 - Page loads correctly.
+1. Navigate to url 'https://www.rossmann.pl/kontakt'
+2. Verify visibility of map, company/contact information
+3. Check content of company information
+
+Test case 2 - Sending a blank contact form.
+1. Navigate to url 'https://www.rossmann.pl/kontakt'
+2. Click 'Wyślij wiadomość' button
+3. Verify error messages (email, message, captcha)
+
+Test case 3 - Validation of email, phone number and message field.
+1. Navigate to url 'https://www.rossmann.pl/kontakt'
+2. Type letter in email field
+3. Type digit in phone number field
+4. Type <19 characters in message field
+5. Click 'Wyślij wiadomość' button
+6. Verify error messages (phone number, email, message)
+
+Test case 4 - Filling out the contact form.
+1. Navigate to url 'https://www.rossmann.pl/kontakt'
+2. Choose category of message: "Klub Rossmann" 
+3. Type correct values into: First Name, Last Name, Email, Phone number, message, rossmann club card number
+4. Click 'Wyślij wiadomość' button
+5. Verify error messages (captcha)
+
+
+### Request category - Stationary drugstore:
+
+Test case 1 - Verify "Numer karty klubu" field in "Klub Rossmann" category.
+1. Navigate to url 'https://www.rossmann.pl/kontakt'
+2. Choose category of message: "Drogeria stacjonarna" and "Klub Rossmann" 
+3. Click 'Wyślij wiadomość' button
+4. Verify error messages (rossmann club card number, captcha)
+5. Type letter in field 'Numer karty klubu' and click 'Wyślij wiadomość' button
+6. Verify error messages (rossmann club card number) and clear field
+7. Type digit in field 'Numer karty klubu' and click 'Wyślij wiadomość' button
+8. Verify error messages (rossmann club card number)
+9. Type >13 characters in field 'Numer karty klubu' and click 'Wyślij wiadomość' button
+10. Verify error messages (rossmann club card number)
+11. Type correct value (13 char) and click 'Wyślij wiadomość' button
+12. Verify no error message
+
+Test case 2 - Verify "Numer karty Programu Rossnę!" field in "Program Rossnę!" category.
+1. Navigate to url 'https://www.rossmann.pl/kontakt'
+2. Choose category of message: "Drogeria stacjonarna" and "Program Rossnę!" 
+3. Click 'Wyślij wiadomość' button
+4. Verify error messages (rossmann club card number, captcha)
+5. Type letter in field 'Numer karty klubu' and click 'Wyślij wiadomość' button
+6. Verify error messages (rossmann club card number) and clear field
+7. Type digit in field 'Numer karty klubu' and click 'Wyślij wiadomość' button
+8. Verify error messages (rossmann club card number)
+9. Type >13 characters in field 'Numer karty klubu' and click 'Wyślij wiadomość' button
+10. Verify error messages (rossmann club card number)
+11. Type correct value (13 char) and click 'Wyślij wiadomość' button
+12. Verify no error message
+
+Test case 3 - Verify "Pytanie o produkt" category.
+1. Navigate to url 'https://www.rossmann.pl/kontakt'
+2. Choose category of message: "Drogeria stacjonarna" and "Pytanie o produkt" 
+3. Click 'Wyślij wiadomość' button
+4. Verify no error message
+5. Verify text above 'Number katalogowy produktu' field
+
+Test case 4 - Verify "Usługi fotograficzne Cewe/Kodak" category.
+1. Navigate to url 'https://www.rossmann.pl/kontakt'
+2. Choose category of message: "Drogeria stacjonarna" and "Usługi fotograficzne Cewe/Kodak" 
+3. Verify that there is no field to enter the (card) number 
 
 Please note that the above test cases are just examples of basic documentation for automation purpose, and more test scenarios can be added as needed.
