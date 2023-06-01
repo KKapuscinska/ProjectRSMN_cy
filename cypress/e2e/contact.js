@@ -41,15 +41,15 @@ describe ('Contact page', function (){
         contactPage.getSendMsgBtn().click()
 
         //Checking the validation message - blank email field
-        contactPage.getUserContactFields().eq(0).find(contactPage.getFeedbackText())
+        contactPage.getUserContactFields().eq(0).find(mainPage.getFeedbackText())
         .should('be.visible').and('have.text', this.data.emailLackFeedback)
           
         //Checking the validation message - blank message field
-        contactPage.getTaskFields().find(contactPage.getFeedbackText())
+        contactPage.getTaskFields().find(mainPage.getFeedbackText())
         .should('be.visible').and('have.text', this.data.msgLackFeedback)
 
         //Checking the validation message - Captcha
-        contactPage.getCaptcha().find(contactPage.getFeedbackText())
+        contactPage.getCaptcha().find(mainPage.getFeedbackText())
         .should('be.visible').and('have.text', this.data.captchaInvalidFeedback)
         
     })
@@ -72,15 +72,15 @@ describe ('Contact page', function (){
         contactPage.getSendMsgBtn().click()
 
         //Checking the validation message - incorrect email
-        contactPage.getUserContactFields().find(contactPage.getFeedbackText()).eq(0)
+        contactPage.getUserContactFields().find(mainPage.getFeedbackText()).eq(0)
         .should('be.visible').and('have.text', this.data.emailInvalidFeedback)
 
         ////Checking the validation message - too short value in Phone number field
-        contactPage.getUserContactFields().find(contactPage.getFeedbackText()).eq(1)
+        contactPage.getUserContactFields().find(mainPage.getFeedbackText()).eq(1)
         .should('be.visible').and('have.text', this.data.phoneNumberInvalidFeedback)
       
         //Checking the validation message - too short value in Message field
-        contactPage.getTaskFields().find(contactPage.getFeedbackText())
+        contactPage.getTaskFields().find(mainPage.getFeedbackText())
         .should('be.visible').and('have.text',this.data.msgInvalidFeedback)
 
     })
@@ -114,7 +114,7 @@ describe ('Contact page', function (){
         contactPage.getSendMsgBtn().click()
 
         //Checking the validation message - Captcha
-        contactPage.getCaptcha().find(contactPage.getFeedbackText())
+        contactPage.getCaptcha().find(mainPage.getFeedbackText())
         .should('be.visible').and('have.text', this.data.captchaInvalidFeedback)     
                 
     })
@@ -152,13 +152,13 @@ describe ('Request category - Stationary drugstore.', function (){
         contactPage.getSendMsgBtn().click()
 
         //Checking the validation message - blank 'Numer karty klubu' field
-        contactPage.getUnitOfNumberFieldInCategory().find(contactPage.getFeedbackText())
+        contactPage.getUnitOfNumberFieldInCategory().find(mainPage.getFeedbackText())
         .should('be.visible').and('have.text', this.data.cardNumberLackFeedback)
 
         contactPage.getNumberFieldInCategory().type(this.data.letter)
 
         //Checking the validation message - letter in 'Numer karty klubu' field
-        contactPage.getUnitOfNumberFieldInCategory().find(contactPage.getFeedbackText())
+        contactPage.getUnitOfNumberFieldInCategory().find(mainPage.getFeedbackText())
         .should('be.visible').and('have.text', this.data.cardNumberLackFeedback)
 
         contactPage.getNumberFieldInCategory().type('{backspace}')
@@ -167,20 +167,20 @@ describe ('Request category - Stationary drugstore.', function (){
         contactPage.getSendMsgBtn().click()
 
         //Checking the validation message - too short value in 'Numer karty klubu' field
-        contactPage.getUnitOfNumberFieldInCategory().find(contactPage.getFeedbackText())
+        contactPage.getUnitOfNumberFieldInCategory().find(mainPage.getFeedbackText())
         .should('be.visible').and('have.text', this.data.cardNumberInvalidFeedback)
 
         contactPage.getNumberFieldInCategory().type(this.data.clubCardNumber)
 
         //Checking the validation message - too long value in 'Numer karty klubu' field
-        contactPage.getUnitOfNumberFieldInCategory().find(contactPage.getFeedbackText())
+        contactPage.getUnitOfNumberFieldInCategory().find(mainPage.getFeedbackText())
         .should('be.visible').and('have.text', this.data.cardNumberInvalidFeedback)
 
         contactPage.getNumberFieldInCategory().type('{backspace}')
         contactPage.getSendMsgBtn().click()
 
         //Checking if the validation message is not displayed in correct value
-        contactPage.getUnitOfNumberFieldInCategory().find(contactPage.getFeedbackText())
+        contactPage.getUnitOfNumberFieldInCategory().find(mainPage.getFeedbackText())
         .should('not.exist')
 
     })
@@ -199,13 +199,13 @@ describe ('Request category - Stationary drugstore.', function (){
         contactPage.getSendMsgBtn().click()
 
         //Checking the validation message - blank 'Numer karty Programu Rossnę!' field
-        contactPage.getUnitOfNumberFieldInCategory().find(contactPage.getFeedbackText())
+        contactPage.getUnitOfNumberFieldInCategory().find(mainPage.getFeedbackText())
         .should('be.visible').and('have.text', this.data.cardNumberLackFeedback)
 
         contactPage.getNumberFieldInCategory().type(this.data.letter)
 
         //Checking the validation message - letter in 'Numer karty Programu Rossnę!' field
-        contactPage.getUnitOfNumberFieldInCategory().find(contactPage.getFeedbackText())
+        contactPage.getUnitOfNumberFieldInCategory().find(mainPage.getFeedbackText())
         .should('be.visible').and('have.text', this.data.cardNumberLackFeedback)
 
         contactPage.getNumberFieldInCategory().type('{backspace}')
@@ -214,20 +214,20 @@ describe ('Request category - Stationary drugstore.', function (){
         contactPage.getSendMsgBtn().click()
 
         //Checking the validation message - too short value in 'Numer karty Programu Rossnę!' field
-        contactPage.getUnitOfNumberFieldInCategory().find(contactPage.getFeedbackText())
+        contactPage.getUnitOfNumberFieldInCategory().find(mainPage.getFeedbackText())
         .should('be.visible').and('have.text', this.data.cardNumberInvalidFeedback)
 
         contactPage.getNumberFieldInCategory().type(this.data.clubCardNumber)
 
         //Checking the validation message - too long value in 'Numer karty Programu Rossnę!' field
-        contactPage.getUnitOfNumberFieldInCategory().find(contactPage.getFeedbackText())
+        contactPage.getUnitOfNumberFieldInCategory().find(mainPage.getFeedbackText())
         .should('be.visible').and('have.text', this.data.cardNumberInvalidFeedback)
 
         contactPage.getNumberFieldInCategory().type('{backspace}')
         contactPage.getSendMsgBtn().click()
 
         //Checking if the validation message is not displayed in correct value
-        contactPage.getUnitOfNumberFieldInCategory().find(contactPage.getFeedbackText())
+        contactPage.getUnitOfNumberFieldInCategory().find(mainPage.getFeedbackText())
         .should('not.exist')
 
     })
@@ -246,7 +246,7 @@ describe ('Request category - Stationary drugstore.', function (){
         contactPage.getSendMsgBtn().click()
 
         //Checking if the validation message is not displayed
-        contactPage.getUnitOfNumberFieldInCategory().find(contactPage.getFeedbackText())
+        contactPage.getUnitOfNumberFieldInCategory().find(mainPage.getFeedbackText())
         .should('not.exist')
 
         //Checking value of text above 'Number katalogowy produktu' field

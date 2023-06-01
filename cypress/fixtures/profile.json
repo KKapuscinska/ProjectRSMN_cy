@@ -4,6 +4,8 @@
     "paymentsAddPath": "platnicze/dodaj-karte",
     "shopEditPath": "edycja-drogerii",
     "settingsPath": "ustawienia-konta",
+    "adressAddPath": "dodaj-nowy-adres",
+    "passwordPath": "zmiana-hasla",
 
 
     "blankFavouritesListInfo": "0 produktów",
@@ -11,21 +13,27 @@
 
     "yourShopHeadline": "Rossmann ",
     "yourShop": "Twój sklep Rossmann",
+    "street": "Testowa",
+    "houseNumber": "1",
+    "zipCode": "91-222",
     "city": "Łódź",
+    
     "yourShopEditBth": "Edytuj",
     "chooseYourShopHeadline": "Wybierz swój sklep Rossmann",
     "chooseShop": "Wybierz sklep",
     "NoShopSelectedHeadline": "Brak wybranej drogerii",
 
-    "NslRossmann": "Newsletter rossmann.pl",
-    "memberKR": "Jesteś Uczestnikiem Klubu Rossmann",
+    "headerNewsletterRossmannBox": "Newsletter rossmann.pl",
+    "headerKrBoxClubMember": "Jesteś Uczestnikiem Klubu Rossmann",
+    "headerKrBoxNonClubMember": "Dołącz do Klubu Rossmann!",
     "resignsBtn": "Rezygnuję",
-    "rossneCheckboxValidation": "Zaznaczenie tego pola jest wymagane",
-    "joinKR": "Dołącz do Klubu Rossmann!",
+    "checkboxValidation": "Zaznaczenie tego pola jest wymagane",
+    
     
     
     "removeEmailToast": "Usunięcie adresu e-mail zostało przyjęte do realizacji.",
-    "enrollToNslRossneToast": "Pomyślnie zapisano na newsletter Rossnę!",
-    "enrollToNslToast": "Pomyślnie zapisano na newsletter!",
+    "subscribeToRossneNewsletterToast": "Pomyślnie zapisano na newsletter Rossnę!",
+    "subscribeToRossmannNewsletterToast": "Pomyślnie zapisano na newsletter!",
+    "subscribeToSpecialClubToast": "Pomyślnie zapisano do Klubu Wyjątkowych!",
     "blankCardFormToast": "Nie możemy dodać Twojej karty płatniczej. \n Sprawdź dane karty i spróbuj ponownie"
 }

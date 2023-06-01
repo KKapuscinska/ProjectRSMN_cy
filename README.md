@@ -9,12 +9,10 @@ It is a project designed for training purposes in the field of test automation, 
 Test scenarios
 Below are some sample test scenarios that have been automated in this project:
 
-    Contact Page tests (9):
-Contact Page (4)
-Request category - Stationary drugstore (5)
+    Contact Page tests (8):
 
 
-Contact Page:
+Contact Page
 
 Test case 1 - Page loads correctly.
 1. Navigate to url 'https://www.rossmann.pl/kontakt'
@@ -42,7 +40,7 @@ Test case 4 - Filling out the contact form.
 5. Verify error messages (captcha)
 
 
-Request category - Stationary drugstore:
+Request category - Stationary drugstore
 
 Test case 1 - Verify "Numer karty klubu" field in "Klub Rossmann" category.
 1. Navigate to url 'https://www.rossmann.pl/kontakt'
@@ -84,7 +82,8 @@ Test case 4 - Verify "Usługi fotograficzne Cewe/Kodak" category.
 2. Choose category of message: "Drogeria stacjonarna" and "Usługi fotograficzne Cewe/Kodak" 
 3. Verify that there is no field to enter the (card) number 
 
-    Login tests (6):
+    Login tests (5):
+
 
 Test case 1 - Incorecct Login and Password
 1. Navigate to url 'https://www.rossmann.pl/logowanie'
@@ -116,15 +115,11 @@ Test case 5 - Show Password Functionality
 4. Verify that the password visibility is toggled correctly
 
 
-    Profile tests (21):
-Profile tab (3)
-Purchase history tab (2)
-Favourite tab (3)
-Rossne tab (5)
-Settings tab (7)
-Payments tab (1)
+    Profile tests (29):
 
-Profile:
+
+Profile
+
 Test case 1 - User without any favourite products - tab appearance.
 1. Navigate to url 'https://www.rossmann.pl/logowanie'
 2. Log in with empty user account
@@ -147,7 +142,8 @@ Test case 3 - Redirecting to the list of favorite products.
 5. Click 'Zobacz wszystkie' button
 6. Verify url
 
-Purchase history:
+Purchase history
+
 Test case 1 - User without any orders - tab appearance.
 1. Navigate to url 'https://www.rossmann.pl/logowanie'
 2. Log in with an empty user account
@@ -163,7 +159,8 @@ Test case 2 - User with order - tab appearance.
 5. Verify invisibility of empty list
 
 
-Favorite:
+Favorite
+
 Test case 1 - User without any favorite products - tab appearance.
 1. Navigate to url 'https://www.rossmann.pl/logowanie'
 2. Log in with an empty user account
@@ -185,27 +182,28 @@ Test case 3 - Displaying only promotional products.
 5. Verify the display of promotional prices and omnibus info on all products
 
 
-Rossne:
-Test case 1 - Tab not displayed for a user who is not enrolled in the Rossnę! program.
+Rossne
+
+Test case 1 - Non-Rossnę! Program User Checks Profile for Rossnę! Tab Absence.
 1. Navigate to url 'https://www.rossmann.pl/logowanie'
-2. Log in with an empty user account
+2. Log in with non-rossne user
 3. Go to the Settings page
 4. Verify invisibility of Rossne tab
 
-Test case 2 - User who enrolled in the Rossnę! program - tab appearance.
+Test case 2 - Rossnę! Program User - tab appearance.
 1. Navigate to url 'https://www.rossmann.pl/logowanie'
 2. Log in with a Rossne user account
 3. Go to Settings page and click on Rossne tab
 4. Verify visibility of nsl rossne box, rossne program box and Payments logos module
 
-Test case 3 - Approval of an empty checkbox in Rossnę! nsl
+Test case 3 - Subscribe Rossne! newsletter without confirmation checkbox check.
 1. Navigate to url 'https://www.rossmann.pl/logowanie'
 2. Log in with a Rossne user account
 3. Go to Settings page and click on Rossne tab
 4. Click 'Zapisuję się' button in nsl rossne box
 5. Verify error message
 
-Test case 4 - Giving consent to receive Rossnę! nsl.
+Test case 4 - Subscribe Rossne! newsletter.
 1. Navigate to url 'https://www.rossmann.pl/logowanie'
 2. Log in with a Rossne user account
 3. Go to Settings page and click on Rossne tab
@@ -213,7 +211,15 @@ Test case 4 - Giving consent to receive Rossnę! nsl.
 5. Click 'Zapisuję się' button in nsl rossne box
 6. Verify of success toast message
 
-Test case 5 - Opting-out from receiving Rossnę! nsl.
+Test case 5 - Unsubscribe Rossnę! newsletter, cancel confirmation.
+1. Navigate to url 'https://www.rossmann.pl/logowanie'
+2. Log in with a Rossne user account
+3. Go to Settings page and click on Rossne tab
+4. Click 'Rezygnuję' button in nsl rossne box
+5. Click 'Jeszcze to przemyślę' button in resignation confirmation window
+6. Verify no changes
+
+Test case 6 - Unsubscribe Rossnę! newsletter.
 1. Navigate to url 'https://www.rossmann.pl/logowanie'
 2. Log in with a Rossne user account
 3. Go to Settings page and click on Rossne tab
@@ -222,7 +228,8 @@ Test case 5 - Opting-out from receiving Rossnę! nsl.
 6. Verify of success toast message
 
 
-Settings:
+Settings
+
 Test case 1 - Plain user - tab appearance.
 1. Navigate to url 'https://www.rossmann.pl/logowanie'
 2. Log in with empty user account
@@ -232,7 +239,15 @@ Test case 1 - Plain user - tab appearance.
 6. Verify that the nsl KR checkbox is unchecked 
 7. Verify KR module header 
 
-Test case 2 - Opening the Your Shop edition - user without Your Shop selected.
+Test case 2 - User in Rossmann Club - tab appearance.
+1. Navigate to url 'https://www.rossmann.pl/logowanie'
+2. Log in as a user in Rossmann Club
+3. Go to the Settings page
+4. Verify visibility of 'Twój sklep', 'Moje dane', 'Zmień hasło' modules and 'Usuń konto' button
+5. Verify content of headers in Rossmann Club box and Rossmann Club nsl box 
+6. Verify visibility of 'Rezygnuję' button in Rossmann Club box
+
+Test case 3 - Opening the Your Shop edition - user without Your Shop selected.
 1. Navigate to url 'https://www.rossmann.pl/logowanie'
 2. Log in with empty user account
 3. Go to 'Settings' page
@@ -243,49 +258,103 @@ Test case 2 - Opening the Your Shop edition - user without Your Shop selected.
 8. Click 'Wróć do ustawień' button
 9. Verify setting url
 
-Test case 3 - Tab with Your Shop selected loads correctly.
+Test case 4 - Opening the Your Shop edition - user with Your Shop selected.
 1. Navigate to url 'https://www.rossmann.pl/logowanie'
 2. Log in with a user account that has selected a store in the 'Twój sklep' module
 3. Go to Settings page 
-4. Verify content of header and button in 'Twój sklep' module
-5. Verify visibility of shop opening hourn and adress in 'Twój sklep' module
+4. Verify visibility of shop opening hourn and adress in 'Twój sklep' module
+5. Click 'Edytuj' button in 'Twój sklep' module
+6. Verify url and header of new page
+7. Type city name in search field
+8. Verify visibility of the list of stores
+9. Click 'Wróć do ustawień' button
+10. Verify visibility of random setting module
 
-Test case 4 - Opening the Your Shop edition - user with Your Shop selected.'
+Test case 5 - Sending empty password change form and verifying error messages.
 1. Navigate to url 'https://www.rossmann.pl/logowanie'
-2. Log in with a user account that has selected a store in the 'Twój sklep' module
+2. Log in 
 3. Go to Settings page 
-4. Click 'Edytuj' button in 'Twój sklep' module
-5. Verify url and header of new page
-6. Type city name in search field
-7. Verify visibility of the list of stores
-8. Click 'Wróć do ustawień' button
-9. Verify setting url
+4. Click 'Edytuj' button in 'Zmień hasło' module
+6. Verify url
+7. Click 'Zapisz hasło' button
+8. Verify error messages
+9. Click 'Wróć do ustawień' button
+10. Verify visibility of random setting module
 
-Test case 5 - User in Rossmann Club - tab appearance.
+Test case 6 - Adding and removing new address. 
 1. Navigate to url 'https://www.rossmann.pl/logowanie'
-2. Log in as a user in Rossmann Club
-3. Go to the Settings page
-4. Verify visibility of 'Twój sklep', 'Moje dane', 'Zmień hasło' modules and 'Usuń konto' button
-5. Verify content of headers in Rossmann Club box and Rossmann Club nsl box 
-6. Verify visibility of 'Rezygnuję' button in Rossmann Club box
+2. Log in 
+3. Go to Settings page 
+4. Click 'Dodaj nowy adres' in 'Adresy' module
+5. Verify url
+6. Complete form and click 'Zapisz adres' button
+7. Verify visibility of card with new adress
+8. Click 'X' button in adress card
+9. Verify invisibility of card with new adress
 
-Test case 6 - Giving consent to receive KR nsl.
+Test case 7 - Subscribe rossmann.pl newsletter without confirmation checkbox check.
 1. Navigate to url 'https://www.rossmann.pl/logowanie'
-2. Log in as a user in Rossmann Club
+2. Log in
 3. Go to the Settings page
-4. Click on checkbox and 'Zapisuję się' button in nsl Rosmann Club box
+4. Click on 'Zapisuję się' button in rossmann.pl nsl box
+5. Verify of validation message
+
+Test case 8 - Subscribe rossmann.pl newsletter.
+1. Navigate to url 'https://www.rossmann.pl/logowanie'
+2. Log in 
+3. Go to the Settings page
+4. Check checkbox and 'Zapisuję się' button in rossmann.pl nsl box
 5. Verify of success toast message
 
-Test case 7 - Opting out from receiving KR nsl.
+Test case 9 - Subscribe Special Club newsletter without confirmation checkbox check.
 1. Navigate to url 'https://www.rossmann.pl/logowanie'
-2. Log in as a user in Rossmann Club
+2. Log in
 3. Go to the Settings page
-4. Click 'Rezygnuję' button in nsl Rosmann Club box
+4. Click on 'Zapisuję się' button in Special Club box
+5. Verify of validation message
+
+Test case 10 - Subscribe Special Club newsletter.
+1. Navigate to url 'https://www.rossmann.pl/logowanie'
+2. Log in 
+3. Go to the Settings page
+4. Check checkbox and 'Zapisuję się' button in Special Club box
+5. Verify of success toast message
+
+Test case 11 - Unsubscribe Special Club newsletter, cancel confirmation.
+1. Navigate to url 'https://www.rossmann.pl/logowanie'
+2. Log in 
+3. Go to the Settings page
+4. Click 'Rezygnuję' button in Special Club nsl box
+5. Click 'Jeszcze to przemyślę' button in resignation confirmation window
+6. Verify no changes
+
+Test case 12 - Unsubscribe Special Club newsletter.
+1. Navigate to url 'https://www.rossmann.pl/logowanie'
+2. Log in 
+3. Go to the Settings page
+4. Click 'Rezygnuję' button in Special Club nsl box
+5. Click 'Jeszcze to przemyślę' button in resignation confirmation window
+6. Verify of success toast message
+
+Test case 13 - Unsubscribe rossmann.pl newsletter, cancel confirmation.
+1. Navigate to url 'https://www.rossmann.pl/logowanie'
+2. Log in 
+3. Go to the Settings page
+4. Click 'Rezygnuję' button in rossmann.pl nsl box
+5. Click 'Jeszcze to przemyślę' button in resignation confirmation window
+6. Verify no changes
+
+Test case 14 - Unsubscribe rossmann.pl newsletter.
+1. Navigate to url 'https://www.rossmann.pl/logowanie'
+2. Log in 
+3. Go to the Settings page
+4. Click 'Rezygnuję' button in rossmann.pl nsl box
 5. Click 'Rezygnuję' button in resignation confirmation window
 5. Verify of success toast message
 
 
-Payments:
+Payments
+
 Test case 1 - Sending a blank form for adding a payment card.
 1. Navigate to url 'https://www.rossmann.pl/logowanie'
 2. Log in with empty user account
@@ -299,11 +368,10 @@ Test case 1 - Sending a blank form for adding a payment card.
 
 
     Rossne tests (9):
-Rossne Page tests (1)
-Rossne Page redirects - Top tile (4)
-Rossne Page redirects - Benefits module (4)
 
-Rossne Page tests:
+
+Rossne Page tests
+
 Test case 1 - The Rossnę! page - appearance.
 1. Navigate to url 'https://www.rossmann.pl
 2. Go to Rossne Page
@@ -347,7 +415,8 @@ Test case 4 - Redirecting to the "Czyściochowo" page.
 7. Verify visibility of Rossne social module, Czyściochowa akademia module and FAQ
 
 
-Rossne Page redirects - Benefits module:
+Rossne Page redirects - Benefits module
+
 Test case 1 - Redirecting to the Rossnę! promotion.
 1. Navigate to url 'https://www.rossmann.pl
 2. Go to Rossne Page

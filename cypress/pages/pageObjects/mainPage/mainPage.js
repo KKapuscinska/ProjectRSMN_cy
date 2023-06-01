@@ -119,6 +119,16 @@ class MainPage {
         return cy.get('.modal-search__input')
     }
 
+    getBtnSelector()
+    {
+        return '.btn'
+    }
+
+    getFeedbackText()
+    {
+        return '.invalid-feedback'
+    }
+
     
 }
 

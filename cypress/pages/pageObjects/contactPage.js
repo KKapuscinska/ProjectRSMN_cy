@@ -70,11 +70,6 @@ class ContactPage {
         return cy.get('.re-captcha')
     }
 
-    getFeedbackText()
-    {
-        return '.invalid-feedback'
-    }
-
     getCategoryRadio()
     {
         return '[name*="Category"]'

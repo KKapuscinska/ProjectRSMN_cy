@@ -57,9 +57,9 @@ import profilePageSelectors from "./profilePageSelectors";
       return cy.get('label.checkbox > .checkbox')
     }
 
-    getResingnsBtn()
+    getSelectorOfResignBtn()
     {
-      return cy.get(':nth-child(2) > .d-flex > div > .ladda-button')
+      return '.d-flex > div > .ladda-button'
     }
 
     getResignWindow()
@@ -72,6 +72,11 @@ import profilePageSelectors from "./profilePageSelectors";
       return cy.get('.py-1 > .btn')
     }
 
+    getCancelBtnInResignWindow()
+    {
+      return cy.get('.btn-lg')
+    }
+
     getPaymentsLogosModule()
     {
       return cy.get('.PaymentLogos-module_paymentLogos--0x3Ic')
@@ -80,6 +85,21 @@ import profilePageSelectors from "./profilePageSelectors";
     getSignUpBtn()
     {
       return cy.get('.d-flex > .ladda-button')
+    }
+
+    getSaveBtn()
+    {
+      return cy.get('.ladda-button')
+    }
+
+    getValidationText()
+    {
+      return cy.get('.is-invalid')
+    }
+
+    getSelectorOfRemoveBtn()
+    {
+      return '.btn-remove'
     }
 
     //Profile Tab
@@ -149,12 +169,6 @@ import profilePageSelectors from "./profilePageSelectors";
     {
       return cy.get('.settings-agreement > :nth-child(3)')
     }
-
-    getValidationText()
-    {
-      return cy.get('.is-invalid')
-    }
-
     
     //SettingsTab
     getYourShopSection()
@@ -182,14 +196,19 @@ import profilePageSelectors from "./profilePageSelectors";
       return cy.get('.text-right > div > .btn')
     }
     
-    getRossmannClubNslBox()
+    getNslBox()
     {
       return cy.get('.settings-agreement > :nth-child(2)')
     }
 
-    getRossmannClubBox()
+    getClubBox()
     {
       return cy.get('.settings-agreement > :nth-child(3)')
+    }
+
+    getSpecialClubBox()
+    {
+      return cy.get('.settings-agreement > :nth-child(4)')
     }
 
     getRossmannClubBoxHeadline()
@@ -227,6 +246,37 @@ import profilePageSelectors from "./profilePageSelectors";
       return cy.get('.col-sm-10')
     }
 
+    getAddAdressField()
+    {
+      return cy.get('.settings-address__col > .btn')
+    }
+
+    getAdressCard()
+    {
+      return cy.get('.settings-address__card')
+    }
+
+    //Settings adress
+
+    getStreetField()
+    {
+      return cy.get('.col-10 > .form-group > div > [data-testid="react-input"]')
+    }
+
+    getHouseNumberField()
+    {
+      return cy.get('.col-6 > .form-group > div > [data-testid="react-input"]')
+    }
+
+    getAdressContinuedField()
+    {
+      return cy.get('form > :nth-child(1) > :nth-child(2) > .form-group > div > [data-testid="react-input"]')
+    }
+
+    getZipCodeField()
+    {
+      return cy.get(':nth-child(3) > .form-group > div > [data-testid="react-input"]')
+    }
 
     //PaymentsTab
 
