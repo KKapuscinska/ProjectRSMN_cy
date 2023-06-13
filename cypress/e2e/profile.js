@@ -169,7 +169,7 @@ describe ('The Rossnę! tab tests', () => {
         mainPage.cookiesAgreement()
         profilePage.getCheckbox().should('not.be.checked')
         profilePage.getSignUpBtn().click()
-        profilePage.getValidationText().should('have.text', this.data.checkboxValidation)
+        profilePage.getRossneNslBox().find(profilePage.getSelectorOfValidationText()).should('have.text', this.data.checkboxValidation)
     })
 
     it('Subscribe Rossne! newsletter.',function(){
@@ -209,7 +209,19 @@ describe ('The Rossnę! tab tests', () => {
         .should('have.text', this.data.removeEmailToast)
         profilePage.getCheckbox().should('be.visible').and('not.be.checked')
 
-    })    
+    })  
+    
+    it('Resignation from the Rossnę! program, cancel confirmation.',function(){
+        loginPage.loginRossneUser()
+        mainPage.toSettingsTab()
+        profilePage.toRossneTab()
+        profilePage.getRossneNslBox().scrollIntoView()
+        mainPage.cookiesAgreement()
+        profilePage.getRossneProgramBox().find(profilePage.getSelectorOfResignBtn()).click()
+        profilePage.getResignWindow().should('be.visible')
+        profilePage.getCancelBtnInResignWindow().click()
+        profilePage.getRossneProgramBox().find(profilePage.getSelectorOfResignBtn()).should('be.visible')
+    })
     
 })
 
@@ -282,19 +294,87 @@ describe ('The Settings tab tests', () => {
         profilePage.getSettingsContactSection().should('be.visible')
     })
 
-    it('Sending empty password change form and verifying error messages.',function(){ 
+    it('Password Change - Validation of Password Field: Length, Letters, Numbers, Empty Fields, and Mismatched New Passwords.',function(){ 
         loginPage.login()
         mainPage.toSettingsTab()
         cy.wait(1000)
         profilePage.getSettingsPasswordSection().find(mainPage.getBtnSelector()).click()
         cy.url().should('include', this.data.passwordPath)
-        profilePage.getSaveBtn().click()
-        cy.get(mainPage.getFeedbackText()).eq(0).should('have.text', 'Proszę podaj hasło.')
-        //cy.get(mainPage.getFeedbackText()).eq(1).should('have.text', 'Hasło powinno zawierać przynajmniej 1 cyfrę, 1 literę i mieć długość od 8 do 64 znaków.')
-        cy.get(mainPage.getFeedbackText()).eq(2).should('have.text', 'Proszę podaj hasło.')
-        profilePage.getBackToSettingsBtn().click()
-        profilePage.getSettingsContactSection().should('be.visible')
 
+        //Validation for empty password fields
+        profilePage.getSaveBtn().click()
+        profilePage.getPassErrorMsg().eq(0).find(mainPage.getFeedbackText())
+        .should('have.text', this.data.emptyPassFieldValidation)
+        profilePage.getPassErrorMsg().eq(1).find(mainPage.getFeedbackText())
+        .should('have.text', this.data.emptyPassFieldValidation)
+        profilePage.getPassErrorMsg().eq(2).find(mainPage.getFeedbackText())
+        .should('have.text', this.data.emptyPassFieldValidation)
+
+        //Validation for invalid new password confirmation
+        profilePage.getPassField().eq(0).type(this.data.currentPass, {delay: 100, force: true})
+        profilePage.getPassField().eq(1).type(this.data.newPass, {delay: 100, force: true})
+        profilePage.getPassField().eq(2).type(this.data.secondNewPass)
+        profilePage.getSaveBtn().click()
+        profilePage.getPassErrorMsg().eq(0).find(mainPage.getFeedbackText()).should('not.exist')
+        profilePage.getPassErrorMsg().eq(1).find(mainPage.getFeedbackText()).should('not.exist')
+        profilePage.getPassErrorMsg().eq(2).find(mainPage.getFeedbackText())
+        .should('have.text', this.data.notMatchingPassValidation)
+        profilePage.getBackToSettingsBtn().click()
+        profilePage.getSettingsPasswordSection().find(mainPage.getBtnSelector()).click()
+
+        //Validation for password  length <8 characters
+        profilePage.getPassField().eq(1).type(this.data.invalidShortPass)
+        profilePage.getSaveBtn().click()
+        profilePage.getPassErrorMsg().eq(1).find(mainPage.getFeedbackText())
+        .should('have.text', this.data.incorrectPassLengthValidation)
+        profilePage.getBackToSettingsBtn().click()
+        profilePage.getSettingsPasswordSection().find(mainPage.getBtnSelector()).click()
+
+        //Validation for password length >64 characters
+        profilePage.getPassField().eq(1).type(this.data.invalidLongPass, {delay: 100, force: true})
+        profilePage.getSaveBtn().click()
+        profilePage.getPassErrorMsg().eq(1).find(mainPage.getFeedbackText())
+        .should('have.text', this.data.incorrectPassLengthValidation)
+        profilePage.getBackToSettingsBtn().click()
+        profilePage.getSettingsPasswordSection().find(mainPage.getBtnSelector()).click()
+
+        //Validation for password with only numbers
+        profilePage.getPassField().eq(1).type(this.data.invalidNumberPass)
+        profilePage.getSaveBtn().click()
+        profilePage.getPassErrorMsg().eq(1).find(mainPage.getFeedbackText())
+        .should('have.text', this.data.incorrectPassValidation)
+        profilePage.getBackToSettingsBtn().click()
+        profilePage.getSettingsPasswordSection().find(mainPage.getBtnSelector()).click()
+
+        //Validation for password with only letters
+        profilePage.getPassField().eq(1).type(this.data.invalidAlphaPass)
+        profilePage.getSaveBtn().click()
+        profilePage.getPassErrorMsg().eq(1).find(mainPage.getFeedbackText())
+        .should('have.text', this.data.incorrectPassValidation)
+    })
+
+    it('Password Change - Toggle Password Visibility.',function(){ 
+        loginPage.login()
+        mainPage.toSettingsTab()
+        cy.wait(1000)
+        profilePage.getSettingsPasswordSection().find(mainPage.getBtnSelector()).click()
+        cy.url().should('include', this.data.passwordPath)
+
+        profilePage.getPassField().eq(0).type(this.data.currentPass)
+        .should('have.attr', 'type', 'password')
+        profilePage.getPassVisibilityIcon().eq(0).click()
+        profilePage.getPassField().eq(0).should('have.attr', 'type', 'text')
+
+        profilePage.getPassField().eq(1).type(this.data.newPass)
+        .should('have.attr', 'type', 'password')
+        profilePage.getPassVisibilityIcon().eq(1).click()
+        profilePage.getPassField().eq(1).should('have.attr', 'type', 'text')
+
+        profilePage.getPassField().eq(2).type(this.data.secondNewPass)
+        .should('have.attr', 'type', 'password')
+        profilePage.getPassVisibilityIcon().eq(2).click()
+        profilePage.getPassField().eq(2).should('have.attr', 'type', 'text')   
+        
     })
 
     it('Adding and removing new address. ',function(){ 
@@ -327,7 +407,7 @@ describe ('The Settings tab tests', () => {
         profilePage.getSpecialClubBox().should('not.exist')
         profilePage.getCheckbox().should('not.be.checked')
         profilePage.getSignUpBtn().click()
-        profilePage.getValidationText().should('be.visible').and('have.text', this.data.checkboxValidation)
+        profilePage.getNslBox().find(profilePage.getSelectorOfValidationText()).and('have.text', this.data.checkboxValidation)
     })
 
     it('Subscribe rossmann.pl newsletter.',function(){ 
@@ -351,7 +431,7 @@ describe ('The Settings tab tests', () => {
         profilePage.getSpecialClubBox().should('be.visible')
         profilePage.getCheckbox().should('not.be.checked')
         profilePage.getSignUpBtn().click()
-        profilePage.getValidationText().should('be.visible').and('have.text', this.data.checkboxValidation)
+        profilePage.getSpecialClubBox().find(profilePage.getSelectorOfValidationText()).should('be.visible').and('have.text', this.data.checkboxValidation)
     })
 
     it('Subscribe Special Club newsletter.',function(){ 
@@ -423,6 +503,17 @@ describe ('The Settings tab tests', () => {
         profilePage.getSpecialClubBox().should('not.exist')
     })
 
+    it('Resignation from the Rossmann Club, cancel confirmation.',function(){
+        loginPage.loginRossneUser()
+        mainPage.toSettingsTab()
+        profilePage.toRossneTab()
+        profilePage.getClubBox().scrollIntoView()
+        mainPage.cookiesAgreement()
+        profilePage.getRossneProgramBox().find(profilePage.getSelectorOfResignBtn()).click()
+        profilePage.getResignWindow().should('be.visible')
+        profilePage.getCancelBtnInResignWindow().click()
+        profilePage.getClubBox().find(profilePage.getSelectorOfResignBtn()).should('be.visible')
+    })
 
 })
 

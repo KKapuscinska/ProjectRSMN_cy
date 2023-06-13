@@ -17,6 +17,14 @@
     "houseNumber": "1",
     "zipCode": "91-222",
     "city": "Łódź",
+
+    "currentPass": "Tester123",
+    "newPass": "Tester1234",
+    "secondNewPass": "Tester12345",
+    "invalidShortPass": "zxcvbnm",
+    "invalidLongPass": "qwertyuiopasdfghjklzxcvbnmqwertyuiopasdfghjklzxcvbnmqwertyuiopasd",
+    "invalidNumberPass": "123456789",
+    "invalidAlphaPass": "zxcvbnmas",
     
     "yourShopEditBth": "Edytuj",
     "chooseYourShopHeadline": "Wybierz swój sklep Rossmann",
@@ -29,7 +37,10 @@
     "resignsBtn": "Rezygnuję",
     "checkboxValidation": "Zaznaczenie tego pola jest wymagane",
     
-    
+    "emptyPassFieldValidation": "Proszę podaj hasło.",
+    "notMatchingPassValidation": "Hasła nie są zgodne.",
+    "incorrectPassLengthValidation": "Hasło musi zawierać od 8 do 64 znaków.",
+    "incorrectPassValidation": "Hasło powinno zawierać przynajmniej 1 cyfrę, 1 literę i mieć długość od 8 do 64 znaków.'",
     
     "removeEmailToast": "Usunięcie adresu e-mail zostało przyjęte do realizacji.",
     "subscribeToRossneNewsletterToast": "Pomyślnie zapisano na newsletter Rossnę!",

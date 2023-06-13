@@ -92,9 +92,9 @@ import profilePageSelectors from "./profilePageSelectors";
       return cy.get('.ladda-button')
     }
 
-    getValidationText()
+    getSelectorOfValidationText()
     {
-      return cy.get('.is-invalid')
+      return '.d-block'
     }
 
     getSelectorOfRemoveBtn()
@@ -256,6 +256,21 @@ import profilePageSelectors from "./profilePageSelectors";
       return cy.get('.settings-address__card')
     }
 
+    getPassErrorMsg()
+    {
+      return  cy.get('.input-group')
+    }
+
+    getPassField()
+    {
+      return cy.get('.input-group > [data-testid="react-input"]')
+    }
+
+    getPassVisibilityIcon()
+    {
+      return cy.get('.input-group > .input-group-append > .input-group-text')
+    }
+    
     //Settings adress
 
     getStreetField()
