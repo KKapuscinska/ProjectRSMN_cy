@@ -1,5 +1,6 @@
 {
     "brandName": "ISANA",
-    "productName": ["ISANA MEN Kork", "peleryna do golenia", "pędzel do golenia"]
+    "productName": ["ISANA MEN Kork", "peleryna do golenia", "pędzel do golenia"],
+    "lackOfProductToast": "Przepraszamy, nie mamy więcej sztuk tego produktu"
     
 }

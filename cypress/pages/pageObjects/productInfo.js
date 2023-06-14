@@ -35,17 +35,17 @@
     return '.tile-product__sign-rossne'
     }
 
-    getRegularPrice()
+    getSelectorOfRegularPrice()
     {
       return '[data-testid="price-regular"]'
     }
 
-    getOmnibusInfo()
+    getSelectorOfOmnibusInfo()
     {
       return '[data-testid="lowest-price-in-30-days"]'
     }
 
-    getPromoPrice()
+    getSelectorOfPromoPrice()
     {
       return '[data-testid="price-promo-new"]'
     }
@@ -62,26 +62,7 @@
 
     getCart()
     {
-        return cy.get('.tile-product__add-list-plus')
-    }
-
-    getDeliveryWindow()
-    {
-      return cy.get('.modal-body')
-    }
-
-    getDeliveryRowsInDeliveryWindow()
-    {
-      return '.modal-delivery__radio'
-    }
-    getRadioClass()
-    {
-      return '.radio-button'
-    }
-
-    getRadio()
-    {
-      return '.radio'
+        return cy.get('.tile-product__add-list-plus') 
     }
 
     getProductPriceInCart()
@@ -94,7 +75,10 @@
       return cy.get('.price-details__value')
     }
 
-
+    getCartRemoveProductBtn()
+    {
+      return cy.get('.btn-del')
+    }
 
 }
 

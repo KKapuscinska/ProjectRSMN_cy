@@ -15,38 +15,27 @@ describe ('Product tests', () => {
         cy.visit('/')
     })
 
-    it.only('Adding Products to Cart and verify final price.',function(){
+    it('Add Products to Cart and verify final price.',function(){
+       
         mainPage.toNewCategoryTab()
+        cy.wait(500)
+        mainPage.cookiesAgreement()
 
-        //add first product on list to cart
-        productInfo.getCart().eq(0).click()
-        
-        //choosing delivery
-        productInfo.getDeliveryWindow().find(productInfo.getDeliveryRowsInDeliveryWindow())
-        .each(($el, index, $list) => {
-            const inpost=$el.find(productInfo.getRadioClass()).text()
-            if (inpost.includes('InPost')){
-                cy.wrap($el).find(productInfo.getRadio()).click()
-            }
-        }) 
-        productInfo.getDeliveryWindow().find('button').contains('Zapisz').click() 
-        cy.wait(1000)
+        const cartIndexes = [1, 2, 3, 5];
 
-        productInfo.getCart().eq(5).click()
-        cy.wait(2000)
+        cartIndexes.forEach((index) => {
+        productInfo.getCart().eq(index)
+            .click({ force: true })
+        })
 
+        cy.wait(3000)
         mainPage.toBasketTab()
 
         //Counting the basket value
         var sum=0
         productInfo.getProductPriceInCart().each(($el, index, $list) => {
-            //cy.log($el.text()) //show values of the products
             const amount=$el.text()
-            //Changing commas to dots
             var res=amount.split(' ')[0].replace(',','.').trim()
-            //24,99 zł
-            //res[0]=24,99
-            //res[1]=zł
             sum += Number(res)
         })
         .then(() => 
@@ -60,8 +49,30 @@ describe ('Product tests', () => {
             var total=amount.split(' ')[0].replace(',','.').trim()
             expect(Number(total)).to.equal(sum)
         })
-
+        for(let i=0; i<4; i++){
+            productInfo.getCartRemoveProductBtn().eq(0)
+                .click()
+        }
     })
 
+    it('Add max number of one product to Cart and verify error toast.',function(){
+        mainPage.toNewCategoryTab()
+        mainPage.cookiesAgreement()
+
+        for( let i = 0; i <15; i++){
+        productInfo.getCart().eq(0)
+            .click({force: true})
+        cy.wait(500)
+        }
+        mainPage.getToast()
+            .should('have.text', this.data.lackOfProductToast)
+        cy.wait(1000)
+        mainPage.toBasketTab()
+        productInfo.getCartRemoveProductBtn()
+            .click()
+        productInfo.getCartRemoveProductBtn()
+            .should('not.exist')
+
+    })
 
 })

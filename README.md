@@ -44,6 +44,22 @@ Test case 5 - Show Password Functionality
 4. Verify that the password visibility is toggled correctly
 
 
+## Product tests (2)
+
+
+Test case 1 - Add Products to Cart and verify final price. appearance.
+1. Navigate to url 'https://www.rossmann.pl'
+2. Click to random category tab
+3. Add to cart few items
+4. Click to cart icon
+5. Verify final price of products
+
+Test case 2 - Add max number of one product to Cart and verify error toast.
+1. Navigate to url 'https://www.rossmann.pl'
+2. Click to random category tab
+3. Add to cart maximum number of one product (e.g.10)
+4. Verify error message
+
 ## Profile tests (29)
 
 ### Profile tab:
@@ -332,7 +348,8 @@ Test case 1 - The Rossnę! page - appearance.
 4. Verify visibility of 3 photos and text under photos in 'Program Rossnę! jest dla:' module
 5. Verifi visibility of Rossne social module, Czyściochowa akademia module and FAQ
 
-Rossne Page redirects - Top tile:
+### Rossne Page redirects - Top tile:
+
 Test case 1 - Redirecting to the Rossnę! promotion.
 1. Navigate to url 'https://www.rossmann.pl
 2. Go to Rossne Page
