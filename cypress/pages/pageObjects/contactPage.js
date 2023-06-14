@@ -30,15 +30,10 @@ class ContactPage {
         return cy.get('.col-md-10')
     }
 
-    getCompanyContactModule()
+    getTitleInCompanyContactModule()
     {
-        return cy.get('.contact-sections > .container-xl > .container > .row')
+        return cy.get('.contact-sections > .container-xl > .container > .row').find('.title')
     }
-
-    // getCompanyContactModuleFirstColumn()
-    // {
-    //     return cy.get('.contact-sections > .container-xl > .container > .row > :nth-child(1)')
-    // }
 
     getSendMsgBtn()
     {
