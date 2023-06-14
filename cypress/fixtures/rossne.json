@@ -11,9 +11,12 @@
     "knowledgeZonePath": "rossne/strefa-wiedzy",
     "czysciochowoPath": "rossne/czysciochowo",
 
+    "pageHeader": "Rossnę!",
     "promotionsHeader": "Promocje",
     "specialOffersHeader": "Benefity",
     "knowledgeZoneHeader": "Strefa wiedzy",
-    "czysciochowoHeader": "Czyściochowo dla dzieci"
+    "czysciochowoHeader": "Czyściochowo dla dzieci",
+    "numberOfRossneHeroes": "6",
+    "numberOfStatusPhoto": "3"
 
 }

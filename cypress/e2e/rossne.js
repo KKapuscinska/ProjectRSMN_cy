@@ -17,27 +17,59 @@ describe ('Rossne Page tests', () => {
     })
 
     it('The Rossnę! page - appearance.',function(){
-        rossnePage.getRossneSubpagesHeader().should('have.text','Rossnę!')
 
-        rossnePage.getFirstRossneBenefitModule().find('h4').eq(0).should('have.text', this.data.promotionsHeader)
-        rossnePage.getFirstRossneBenefitModule().find('h4').eq(1).should('have.text', this.data.specialOffersHeader)
-        rossnePage.getFirstRossneBenefitModule().find('h4').eq(2).should('have.text', this.data.knowledgeZoneHeader)
-        rossnePage.getFirstRossneBenefitModule().find('h4').eq(3).should('have.text', this.data.czysciochowoHeader)
+        rossnePage.getRossneSubpagesHeader()
+          .should('have.text', this.data.pageHeader)
 
-        rossnePage.getRossneProgramModule().find('img').should('have.length',3)
-        rossnePage.getRossneProgramModule().find('h4').eq(0).contains(this.data.pregnantText)    
-        rossnePage.getRossneProgramModule().find('h4').eq(1).contains(this.data.babyText)
-        rossnePage.getRossneProgramModule().find('h4').eq(2).contains(this.data.juniorText)
+        const headers = [
+            this.data.promotionsHeader,
+            this.data.specialOffersHeader,
+            this.data.knowledgeZoneHeader,
+            this.data.czysciochowoHeader
+          ]
+          
+          rossnePage.getFirstRossneBenefitModule().find('h4').each(($header, index) => {
+            cy.wrap($header)
+              .should('have.text', headers[index])
+          })
 
-        rossnePage.getRossneBenefitModule().should('have.length', 4)
-        rossnePage.getRossneBenefitModule().find('h2').eq(0).should('have.text', this.data.promotionsHeader)
-        rossnePage.getRossneBenefitModule().find('h2').eq(1).should('have.text', this.data.specialOffersHeader)
-        rossnePage.getRossneBenefitModule().find('h2').eq(2).should('have.text', this.data.knowledgeZoneHeader)
-        rossnePage.getRossneBenefitModule().find('h2').eq(3).should('have.text', this.data.czysciochowoHeader)
+        rossnePage.getRossneProgramModule().find('img')
+          .should('have.length', this.data.numberOfStatusPhoto)
 
-        rossnePage.getRossneSocial().should('be.visible')
-        rossnePage.getCzysciochowaAkademia().should('have.text', this.data.organizerText)
-        rossnePage.getRossneFAQ().should('be.visible')
+        const textsToCheck = [
+            this.data.pregnantText,
+            this.data.babyText,
+            this.data.juniorText
+          ]
+          
+          rossnePage.getRossneProgramModule().find('h4').each(($header, index) => {
+            cy.wrap($header)
+              .contains(textsToCheck[index])
+          })
+
+        rossnePage.getRossneBenefitModule()
+          .should('have.length', 4)
+
+          const headerToCheck = [
+            this.data.promotionsHeader,
+            this.data.specialOffersHeader,
+            this.data.knowledgeZoneHeader,
+            this.data.czysciochowoHeader
+          ]
+          
+          rossnePage.getRossneBenefitModule().find('h2').each(($header, index) => {
+            cy.wrap($header)
+              .should('have.text', headerToCheck[index])
+          })
+
+        rossnePage.getRossneSocial()
+          .should('be.visible')
+
+        rossnePage.getCzysciochowaAkademia()
+          .should('have.text', this.data.organizerText)
+
+        rossnePage.getRossneFAQ()
+          .should('be.visible')
         
     })
 })
@@ -85,34 +117,71 @@ describe ('Rossne Page redirects - Top tile', () => {
 // Exclusive promotions have been added. Code to change
 
     it('Redirecting to the "Oferty specjalne" page.',function(){
+
         rossnePage.getFirstRossneBenefitModuleBtn().eq(1).click()
-        cy.url().should('include', this.data.specialOffersPath)
-        rossnePage.getRossneSubpagesHeader().should('have.text',this.data.specialOffersHeader)
-        rossnePage.getRossneOffersImg().should('have.length',3)
-        rossnePage.getRossneSocial().should('be.visible')
-        rossnePage.getCzysciochowaAkademia().should('have.text', this.data.organizerText)
-        rossnePage.getRossneFAQ().should('be.visible')
+
+        cy.url()
+          .should('include', this.data.specialOffersPath)
+
+        rossnePage.getRossneSubpagesHeader()
+          .should('have.text',this.data.specialOffersHeader)
+
+        rossnePage.getRossneOffersImg()
+          .should('have.length', this.data.numberOfStatusPhoto)
+
+        rossnePage.getRossneSocial()
+          .should('be.visible')
+
+        rossnePage.getCzysciochowaAkademia()
+          .should('have.text', this.data.organizerText)
+
+        rossnePage.getRossneFAQ()
+          .should('be.visible')
         
     })
 
     it('Redirecting to the "Stera wiedzy" page.',function(){
+
         rossnePage.getFirstRossneBenefitModuleBtn().eq(2).click()
-        cy.url().should('include', this.data.knowledgeZonePath)
-        rossnePage.getRossneSubpagesHeader().should('have.text', this.data.knowledgeZoneHeader)
-        rossnePage.getRossneSocial().should('be.visible')
-        rossnePage.getCzysciochowaAkademia().should('have.text', this.data.organizerText)
-        rossnePage.getRossneFAQ().should('be.visible')
+
+        cy.url()
+          .should('include', this.data.knowledgeZonePath)
+
+        rossnePage.getRossneSubpagesHeader()
+          .should('have.text', this.data.knowledgeZoneHeader)
+
+        rossnePage.getRossneSocial()
+          .should('be.visible')
+
+        rossnePage.getCzysciochowaAkademia()
+          .should('have.text', this.data.organizerText)
+
+        rossnePage.getRossneFAQ()
+          .should('be.visible')
         
     })    
 
     it('Redirecting to the "Czyściochowo" page.',function(){
+
         rossnePage.getFirstRossneBenefitModuleBtn().eq(3).click()
-        cy.url().should('include', this.data.czysciochowoPath)
-        rossnePage.getRossneSubpagesHeader().should('have.text', this.data.czysciochowoHeader)
-        rossnePage.getRossneHero().should('have.length', 6)
-        rossnePage.getRossneSocial().should('be.visible')
-        rossnePage.getCzysciochowaAkademia().should('have.text', this.data.organizerText)
-        rossnePage.getRossneFAQ().should('be.visible')
+
+        cy.url()
+          .should('include', this.data.czysciochowoPath)
+
+        rossnePage.getRossneSubpagesHeader()
+          .should('have.text', this.data.czysciochowoHeader)
+
+        rossnePage.getRossneHero()
+          .should('have.length', this.data.numberOfRossneHeroes)
+
+        rossnePage.getRossneSocial()
+          .should('be.visible')
+
+        rossnePage.getCzysciochowaAkademia()
+          .should('have.text', this.data.organizerText)
+
+        rossnePage.getRossneFAQ()
+          .should('be.visible')
         
     }) 
 })
@@ -157,34 +226,77 @@ describe ('Rossne Page redirects - Benefits module', () => {
 // Exclusive promotions have been added. Code to change
     
     it('Redirecting to the "Oferty specjalne" page.',function(){
-        rossnePage.getRossneBenefitModule().find('.btn').eq(1).scrollIntoView().click()
-        cy.url().should('include', this.data.specialOffersPath)
-        rossnePage.getRossneSubpagesHeader().should('have.text', this.data.specialOffersHeader)
-        rossnePage.getRossneOffersImg().should('have.length',3)
-        rossnePage.getRossneSocial().should('be.visible')
-        rossnePage.getCzysciochowaAkademia().should('have.text', this.data.organizerText)
-        rossnePage.getRossneFAQ().should('be.visible')
+
+        rossnePage.getRossneBenefitModule().find('.btn').eq(1)
+          .scrollIntoView()
+          .click()
+
+        cy.url()
+          .should('include', this.data.specialOffersPath)
+
+        rossnePage.getRossneSubpagesHeader()
+          .should('have.text', this.data.specialOffersHeader)
+
+        rossnePage.getRossneOffersImg()
+          .should('have.length', this.data.numberOfStatusPhoto)
+
+        rossnePage.getRossneSocial()
+          .should('be.visible')
+
+        rossnePage.getCzysciochowaAkademia()
+          .should('have.text', this.data.organizerText)
+
+        rossnePage.getRossneFAQ()
+          .should('be.visible')
         
     })
 
     it('Redirecting to the "Stera wiedzy" page.',function(){
-        rossnePage.getRossneBenefitModule().find('.btn').eq(2).scrollIntoView().click()
-        cy.url().should('include', this.data.knowledgeZonePath)
-        rossnePage.getRossneSubpagesHeader().should('have.text', this.data.knowledgeZoneHeader)
-        rossnePage.getRossneSocial().should('be.visible')
-        rossnePage.getCzysciochowaAkademia().should('have.text', this.data.organizerText)
-        rossnePage.getRossneFAQ().should('be.visible')
+
+        rossnePage.getRossneBenefitModule().find('.btn').eq(2)
+          .scrollIntoView()
+            .click()
+
+        cy.url()
+          .should('include', this.data.knowledgeZonePath)
+
+        rossnePage.getRossneSubpagesHeader()
+          .should('have.text', this.data.knowledgeZoneHeader)
+
+        rossnePage.getRossneSocial()
+          .should('be.visible')
+
+        rossnePage.getCzysciochowaAkademia()
+          .should('have.text', this.data.organizerText)
+
+        rossnePage.getRossneFAQ()
+          .should('be.visible')
         
     })    
 
     it('Redirecting to the "Czyściochowo" page.',function(){
-        rossnePage.getRossneBenefitModule().find('.btn').eq(3).scrollIntoView().click()
-        cy.url().should('include', this.data.czysciochowoPath)
-        rossnePage.getRossneSubpagesHeader().should('have.text', this.data.czysciochowoHeader)
-        rossnePage.getRossneHero().should('have.length', 6)
-        rossnePage.getRossneSocial().should('be.visible')
-        rossnePage.getCzysciochowaAkademia().should('have.text', this.data.organizerText)
-        rossnePage.getRossneFAQ().should('be.visible')
+
+        rossnePage.getRossneBenefitModule().find('.btn').eq(3)
+          .scrollIntoView()
+          .click()
+
+        cy.url()
+          .should('include', this.data.czysciochowoPath)
+
+        rossnePage.getRossneSubpagesHeader()
+          .should('have.text', this.data.czysciochowoHeader)
+
+        rossnePage.getRossneHero()
+          .should('have.length', this.data.numberOfRossneHeroes)
+
+        rossnePage.getRossneSocial()
+          .should('be.visible')
+
+        rossnePage.getCzysciochowaAkademia()
+          .should('have.text', this.data.organizerText)
+
+        rossnePage.getRossneFAQ()
+          .should('be.visible')
         
     }) 
 })
