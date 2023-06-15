@@ -14,11 +14,11 @@ describe ('The Profile tab tests', () => {
 
     it('User without any favourite products - tab appearance.',function(){
 
-        cy.loginEmptyUser()
+        cy.login(this.data.loginEmptyUser, this.data.password)
 
-        mainPage.toSettingsTab()
+        cy.clickProfileIcon()
 
-        profilePage.toProfileTab()
+        cy.goToProfileTabInProfile()
 
         profilePage.getEmptyList()
           .should('be.visible')
@@ -29,11 +29,11 @@ describe ('The Profile tab tests', () => {
 
     it('User with favourite products - tab appearance.',function(){
 
-        cy.loginRegularUser()
+        cy.login(this.data.loginRegularUser, this.data.password)
 
-        mainPage.toSettingsTab()
+        cy.clickProfileIcon()
 
-        profilePage.toProfileTab()
+        cy.goToProfileTabInProfile()
 
         profilePage.getEmptyList()
           .should('not.exist')
@@ -52,11 +52,11 @@ describe ('The Profile tab tests', () => {
 
     it('Redirecting to the list of favorite products.',function(){
 
-        cy.loginRegularUser()
+        cy.login(this.data.loginRegularUser, this.data.password)
 
-        mainPage.toSettingsTab()
+        cy.clickProfileIcon()
 
-        profilePage.toProfileTab()
+        cy.goToProfileTabInProfile()
 
         profilePage.getEmptyList()
           .should('not.exist')
@@ -82,11 +82,11 @@ describe ('The Purchase History tab tests', () => {
 
     it('User without any orders - tab appearance.',function(){ 
 
-        cy.loginEmptyUser()
+        cy.login(this.data.loginEmptyUser, this.data.password)
 
-        mainPage.toSettingsTab()
+        cy.clickProfileIcon()
 
-        profilePage.toHistoryTab()
+        cy.goToHistoryTabInProfile()
 
         cy.wait(1000)
 
@@ -102,11 +102,11 @@ describe ('The Purchase History tab tests', () => {
 
     it('User with orders - tab appearance.',function(){ 
 
-        cy.loginRegularUser()
+        cy.login(this.data.loginRegularUser, this.data.password)
 
-        mainPage.toSettingsTab()
+        cy.clickProfileIcon()
 
-        profilePage.toHistoryTab()
+        cy.goToHistoryTabInProfile()
 
         profilePage.getHistoryCard()
           .should('be.visible')
@@ -131,11 +131,11 @@ describe ('The Favorite tab tests', () => {
 
     it('User without any favorite products - tab appearance.',function(){ 
 
-        cy.loginEmptyUser()
+        cy.login(this.data.loginEmptyUser, this.data.password)
 
-        mainPage.toSettingsTab()
+        cy.clickProfileIcon()
 
-        profilePage.toFavouriteTab()
+        cy.goToFavouriteTabInProfile()
 
         profilePage.getEmptyList()
           .should('be.visible')
@@ -154,13 +154,13 @@ describe ('The Favorite tab tests', () => {
           .and('have.text', this.data.blankFavouritesListInfo)
     }) 
 
-    it('User with favorite products - tab appearance.',function(){
+    it('User with favourite products - tab appearance.',function(){
 
-        cy.loginRegularUser()
+        cy.login(this.data.loginRegularUser, this.data.password)
 
-        mainPage.toSettingsTab()
+        cy.clickProfileIcon()
 
-        profilePage.toFavouriteTab()
+        cy.goToFavouriteTabInProfile()
 
         profilePage.getEmptyList()
           .should('not.exist')
@@ -180,11 +180,11 @@ describe ('The Favorite tab tests', () => {
 
     it('Displaying only promotional products.',function(){
 
-        cy.loginRegularUser()
+        cy.login(this.data.loginRegularUser, this.data.password)
 
-        mainPage.toSettingsTab()
+        cy.clickProfileIcon()
 
-        profilePage.toFavouriteTab()
+        cy.goToFavouriteTabInProfile()
 
         profilePage.getOnlyPromotionSwitch().find('span.handle').click()
 
@@ -229,9 +229,9 @@ describe ('The Rossnę! tab tests', () => {
 
     it('Non-Rossnę! Program User Checks Profile for Rossnę! Tab Absence.',function(){ 
 
-        cy.loginEmptyUser()
+        cy.login(this.data.loginEmptyUser, this.data.password)
 
-        mainPage.toSettingsTab()
+        cy.clickProfileIcon()
 
         profilePage.getRossneTab()
           .should('not.exist')
@@ -239,11 +239,11 @@ describe ('The Rossnę! tab tests', () => {
 
     it('Rossnę! Program User - tab appearance.',function(){
 
-        cy.loginClubUser()
+        cy.login(this.data.loginClubUser,  this.data.password)
 
-        mainPage.toSettingsTab()
+        cy.clickProfileIcon()
 
-        profilePage.toRossneTab()
+        cy.goToRossneTabInProfile()
 
         profilePage.getRossneNslBox()
           .should('be.visible')
@@ -257,11 +257,11 @@ describe ('The Rossnę! tab tests', () => {
     
     it('Subscribe Rossne! newsletter without confirmation checkbox check.',function(){
 
-        cy.loginClubUser()
+        cy.login(this.data.loginClubUser, this.data.password)
 
-        mainPage.toSettingsTab()
+        cy.clickProfileIcon()
 
-        profilePage.toRossneTab()
+        cy.goToRossneTabInProfile()
 
         profilePage.getRossneNslBox().scrollIntoView()
 
@@ -278,11 +278,11 @@ describe ('The Rossnę! tab tests', () => {
 
     it('Subscribe Rossne! newsletter.',function(){
 
-        cy.loginClubUser()
+        cy.login(this.data.loginClubUser, this.data.password)
 
-        mainPage.toSettingsTab()
+        cy.clickProfileIcon()
 
-        profilePage.toRossneTab()
+        cy.goToRossneTabInProfile()
 
         profilePage.getRossneNslBox().scrollIntoView()
 
@@ -303,11 +303,11 @@ describe ('The Rossnę! tab tests', () => {
  
     it('Unsubscribe Rossnę! newsletter, cancel confirmation.',function(){
 
-        cy.loginClubUser()
+        cy.login(this.data.loginClubUser, this.data.password)
 
-        mainPage.toSettingsTab()
+        cy.clickProfileIcon()
 
-        profilePage.toRossneTab()
+        cy.goToRossneTabInProfile()
 
         profilePage.getRossneNslBox().scrollIntoView()
 
@@ -326,11 +326,11 @@ describe ('The Rossnę! tab tests', () => {
 
     it('Unsubscribe Rossnę! newsletter.',function(){
 
-        cy.loginClubUser()
+        cy.login(this.data.loginClubUser, this.data.password)
 
-        mainPage.toSettingsTab()
+        cy.clickProfileIcon()
 
-        profilePage.toRossneTab()
+        cy.goToRossneTabInProfile()
 
         profilePage.getRossneNslBox().scrollIntoView()
 
@@ -354,11 +354,11 @@ describe ('The Rossnę! tab tests', () => {
     
     it('Resignation from the Rossnę! program, cancel confirmation.',function(){
 
-        cy.loginClubUser()
+        cy.login(this.data.loginClubUser, this.data.password)
 
-        mainPage.toSettingsTab()
+        cy.clickProfileIcon()
 
-        profilePage.toRossneTab()
+        cy.goToRossneTabInProfile()
 
         profilePage.getRossneNslBox().scrollIntoView()
 
@@ -388,9 +388,9 @@ describe ('The Settings tab tests', () => {
 
     it('Plain user - tab appearance.',function(){ 
 
-        cy.loginEmptyUser()
+        cy.login(this.data.loginEmptyUser, this.data.password)
 
-        mainPage.toSettingsTab()
+        cy.clickProfileIcon()
 
         profilePage.getYourShopSection().find('h3')
           .should('have.text',this.data.NoShopSelectedHeadline)
@@ -420,9 +420,9 @@ describe ('The Settings tab tests', () => {
 
     it('User in Rossmann Club - tab appearance.',function(){ 
 
-        cy.loginRegularUser()
+        cy.login(this.data.loginRegularUser, this.data.password)
 
-        mainPage.toSettingsTab()
+        cy.clickProfileIcon()
 
         profilePage.getYourShopSection()
           .should('be.visible')
@@ -451,9 +451,9 @@ describe ('The Settings tab tests', () => {
 
     it('Opening the Your Shop edition - user without Your Shop selected.',function(){ 
 
-        cy.loginEmptyUser()
+        cy.login(this.data.loginEmptyUser, this.data.password)
 
-        mainPage.toSettingsTab()
+        cy.clickProfileIcon()
 
         profilePage.getYourShopSection().find(mainPage.getBtnSelector()).click()
 
@@ -479,9 +479,9 @@ describe ('The Settings tab tests', () => {
     
     it('Opening the Your Shop edition - user with Your Shop selected.',function(){
 
-        cy.loginRegularUser()
+        cy.login(this.data.loginRegularUser, this.data.password)
 
-        mainPage.toSettingsTab()
+        cy.clickProfileIcon()
 
         cy.wait(1000)
 
@@ -518,9 +518,9 @@ describe ('The Settings tab tests', () => {
 
     it('Password Change - Validation of Password Field: Length, Letters, Numbers, Empty Fields, and Mismatched New Passwords.',function(){ 
         
-        cy.loginRegularUser()
+        cy.login(this.data.loginRegularUser, this.data.password)
         
-        mainPage.toSettingsTab()
+        cy.clickProfileIcon()
         
         cy.wait(1000)
         
@@ -618,9 +618,9 @@ describe ('The Settings tab tests', () => {
 
     it('Password Change - Toggle Password Visibility.',function(){ 
 
-        cy.loginRegularUser()
+        cy.login(this.data.loginRegularUser, this.data.password)
 
-        mainPage.toSettingsTab()
+        cy.clickProfileIcon()
 
         cy.wait(1000)
 
@@ -660,9 +660,9 @@ describe ('The Settings tab tests', () => {
 
     it('Adding and removing new address. ',function(){ 
         
-        cy.loginRegularUser()
+        cy.login(this.data.loginRegularUser, this.data.password)
 
-        mainPage.toSettingsTab()
+        cy.clickProfileIcon()
 
         cy.wait(1000)
 
@@ -706,9 +706,9 @@ describe ('The Settings tab tests', () => {
 
     it('Subscribe rossmann.pl newsletter without confirmation checkbox check.',function(){ 
 
-        cy.loginRegularUser()
+        cy.login(this.data.loginRegularUser, this.data.password)
 
-        mainPage.toSettingsTab()
+        cy.clickProfileIcon()
 
         profilePage.getNslBox().scrollIntoView()
 
@@ -728,9 +728,9 @@ describe ('The Settings tab tests', () => {
 
     it('Subscribe rossmann.pl newsletter.',function(){ 
 
-        cy.loginRegularUser()
+        cy.login(this.data.loginRegularUser, this.data.password)
 
-        mainPage.toSettingsTab()
+        cy.clickProfileIcon()
 
         profilePage.getNslBox().scrollIntoView()
 
@@ -757,9 +757,9 @@ describe ('The Settings tab tests', () => {
 
     it('Subscribe Special Club newsletter without confirmation checkbox check.',function(){ 
 
-        cy.loginRegularUser()
+        cy.login(this.data.loginRegularUser, this.data.password)
 
-        mainPage.toSettingsTab()
+        cy.clickProfileIcon()
 
         profilePage.getNslBox().scrollIntoView()
 
@@ -780,9 +780,9 @@ describe ('The Settings tab tests', () => {
 
     it('Subscribe Special Club newsletter.',function(){ 
 
-        cy.loginRegularUser()
+        cy.login(this.data.loginRegularUser, this.data.password)
 
-        mainPage.toSettingsTab()
+        cy.clickProfileIcon()
 
         profilePage.getNslBox().scrollIntoView()
 
@@ -806,9 +806,9 @@ describe ('The Settings tab tests', () => {
 
     it('Unsubscribe Special Club newsletter, cancel confirmation.',function(){ 
 
-        cy.loginRegularUser()
+        cy.login(this.data.loginRegularUser, this.data.password)
 
-        mainPage.toSettingsTab()
+        cy.clickProfileIcon()
 
         profilePage.getNslBox().scrollIntoView()
 
@@ -833,9 +833,9 @@ describe ('The Settings tab tests', () => {
 
     it('Unsubscribe Special Club newsletter.',function(){ 
 
-        cy.loginRegularUser()
+        cy.login(this.data.loginRegularUser, this.data.password)
 
-        mainPage.toSettingsTab()
+        cy.clickProfileIcon()
 
         profilePage.getNslBox().scrollIntoView()
 
@@ -866,9 +866,9 @@ describe ('The Settings tab tests', () => {
 
     it('Unsubscribe rossmann.pl newsletter, cancel confirmation.',function(){
 
-        cy.loginRegularUser()
+        cy.login(this.data.loginRegularUser, this.data.password)
 
-        mainPage.toSettingsTab()
+        cy.clickProfileIcon()
 
         profilePage.getNslBox().scrollIntoView()
 
@@ -894,9 +894,9 @@ describe ('The Settings tab tests', () => {
 
     it('Unsubscribe rossmann.pl newsletter.',function(){ 
 
-        cy.loginRegularUser()
+        cy.login(this.data.loginRegularUser, this.data.password)
         
-        mainPage.toSettingsTab()
+        cy.clickProfileIcon()
         
         profilePage.getNslBox().scrollIntoView()
         
@@ -927,11 +927,11 @@ describe ('The Settings tab tests', () => {
 
     it('Resignation from the Rossmann Club, cancel confirmation.',function(){
 
-        cy.loginClubUser()
+        cy.login(this.data.loginClubUser, this.data.password)
 
-        mainPage.toSettingsTab()
+        cy.clickProfileIcon()
 
-        profilePage.toRossneTab()
+        cy.goToRossneTabInProfile()
 
         profilePage.getClubBox().scrollIntoView()
 
@@ -961,11 +961,11 @@ describe ('The Payments tab tests', () => {
     
     it('Sending a blank form for adding a payment card.',function(){ 
 
-        cy.loginEmptyUser()
+        cy.login(this.data.loginEmptyUser, this.data.password)
         
-        mainPage.toSettingsTab()
+        cy.clickProfileIcon()
         
-        profilePage.toPaymentsTab()
+        cy.goToPaymentsTabInProfile()
         
         profilePage.getPaymentsLogosModule()
           .should('be.visible')
