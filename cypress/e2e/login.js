@@ -4,6 +4,7 @@ import { loginPage } from "../pages/pageObjects/login/loginPage"
 describe ('Login tests', () => { 
 
     beforeEach(() => {
+
         cy.visit('/logowanie')
         cy.fixture('login').then(function(data)
     {
@@ -11,48 +12,80 @@ describe ('Login tests', () => {
     })
     })
 
-    it('Incorecct login and password',function(){
-        loginPage.getLogin().type(this.data.randomText, {delay: 100, force: true})
-        .should('have.value', this.data.randomText)
-        loginPage.getPass().type(this.data.randomText, {delay: 100, force: true})
-        .should('have.value', this.data.randomText)
+    it('Incorrect login and password',function(){
+        
+        loginPage.getLogin()
+          .type(this.data.randomText, {delay: 100, force: true})
+          .should('have.value', this.data.randomText)
+
+        loginPage.getPass()
+          .type(this.data.randomText, {delay: 100, force: true})
+          .should('have.value', this.data.randomText)
+
         loginPage.getLoginBtn().click()
-        loginPage.getLogInvalidFeedback().should('have.text',this.data.incorrectDataMsg)
+
+        loginPage.getLogInvalidFeedback()
+          .should('have.text',this.data.incorrectDataMsg)
     })
 
-    it('Incorecct password',function(){
-        loginPage.getLogin().type(this.data.login, {delay: 100, force: true})
-        .should('have.value', this.data.login) 
-        loginPage.getPass().type(this.data.randomText, {delay: 100, force: true})
-        .should('have.value', this.data.randomText)
+    it('Incorrect password',function(){
+        
+        loginPage.getLogin()
+          .type(this.data.login, {delay: 100, force: true})
+          .should('have.value', this.data.login)
+
+        loginPage.getPass()
+          .type(this.data.randomText, {delay: 100, force: true})
+          .should('have.value', this.data.randomText)
+
         loginPage.getLoginBtn().click()
-        loginPage.getLogInvalidFeedback().should('have.text',this.data.incorrectDataMsg)
+
+        loginPage.getLogInvalidFeedback()
+          .should('have.text',this.data.incorrectDataMsg)
         
     })
 
     it('Too short Login',function(){
-        loginPage.getLogin().type(this.data.letter)  
-        .should('have.value', this.data.letter)
+
+        loginPage.getLogin()
+          .type(this.data.letter)  
+          .should('have.value', this.data.letter)
+
         cy.wait(1000)
-        loginPage.getPass().type(this.data.letter)
-        .should('have.value', this.data.letter)
+
+        loginPage.getPass()
+          .type(this.data.letter)
+          .should('have.value', this.data.letter)
+
         loginPage.getLoginBtn().click()
-        loginPage.getLogInvalidFeedback().should('have.text', this.data.tooShortLogin)
+
+        loginPage.getLogInvalidFeedback()
+          .should('have.text', this.data.tooShortLoginMsg)
          
     })
 
     it('Empty fields',function(){
+
         loginPage.getLoginBtn().click()
-        loginPage.getLogInvalidFeedback().should('have.text', this.data.emptyLoginMsg)
-        loginPage.getPassInvalidFeedback().should('have.text', this.data.emptyPassMsg)
+
+        loginPage.getLogInvalidFeedback()
+          .should('have.text', this.data.emptyLoginMsg)
+
+        loginPage.getPassInvalidFeedback()
+          .should('have.text', this.data.emptyPassMsg)
          
     })
 
     it('Show password Functionality',function(){
-        loginPage.getPass().type(this.data.pass, {delay: 100, force: true})
-        loginPage.getPass().should('have.attr', 'type', 'password')
+
+        loginPage.getPass()
+          .type(this.data.pass, {delay: 100, force: true})
+          .should('have.attr', 'type', 'password')
+
         loginPage.getShowPass().click()
-        loginPage.getPass().should('have.attr', 'type', 'text')
+
+        loginPage.getPass()
+          .should('have.attr', 'type', 'text')
          
     })
 

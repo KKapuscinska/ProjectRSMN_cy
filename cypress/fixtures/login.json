@@ -10,7 +10,7 @@
 
 
     "incorrectDataMsg": "Niepoprawne dane logowania.",
-    "tooShortLogin": "Nazwa użytkownika powinna składać się z co najmniej 4 znaków.",
+    "tooShortLoginMsg": "Nazwa użytkownika powinna składać się z co najmniej 4 znaków.",
     "emptyLoginMsg": "Proszę wpisać poprawny adres e-mail lub nazwę użytkownika.",
     "emptyPassMsg": "Proszę wpisać poprawne hasło.",
 
