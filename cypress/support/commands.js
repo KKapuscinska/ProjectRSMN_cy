@@ -17,24 +17,74 @@
 // -- This is will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
 
-Cypress.Commands.add("selectProduct", (productName) => {
+
+
+Cypress.Commands.add('loginEmptyUser', () => {
+
+    const log = 'cytest'
+    const pass = 'Tester123'
+
+    cy.visit('/logowanie')
+  
+    cy.get('#login-user')
+      .type(log, { delay: 100, force: true })
+      .should('have.value', log)
+  
+    cy.get('#login-password')
+      .type(pass, { delay: 100, force: true })
+  
+    cy.get('.ladda-button').click()
+  
+    cy.title()
+      .should('eq', 'Kosmetyki, Makijaż, Piękno | Drogeria internetowa Rossmann.pl')
+  })
+
+  Cypress.Commands.add('loginRegularUser', () => {
+
+    const log = 'cytest1'
+    const pass = 'Tester123'
+
+    cy.visit('/logowanie')
+  
+    cy.get('#login-user')
+      .type(log, { delay: 100, force: true })
+      .should('have.value', log)
+  
+    cy.get('#login-password')
+      .type(pass, { delay: 100, force: true })
+  
+    cy.get('.ladda-button').click()
+  
+    cy.title()
+      .should('eq', 'Kosmetyki, Makijaż, Piękno | Drogeria internetowa Rossmann.pl')
+  })
+
+  Cypress.Commands.add('loginClubUser', () => {
+
+    const log = 'cytest2'
+    const pass = 'Tester123'
+
+    cy.visit('/logowanie')
+  
+    cy.get('#login-user')
+      .type(log, { delay: 100, force: true })
+      .should('have.value', log)
+  
+    cy.get('#login-password')
+      .type(pass, { delay: 100, force: true })
+  
+    cy.get('.ladda-button').click()
+  
+    cy.title()
+      .should('eq', 'Kosmetyki, Makijaż, Piękno | Drogeria internetowa Rossmann.pl')
+  })
+  
+  Cypress.Commands.add("selectProduct", (productName) => {
     cy.get('.tile-product__name').each(($el,index, $list) => {
         if($el.text().includes(productName))
         {
             cy.get('.tile-product__add-list-plus').eq(index).click({force: true})
         }
     })
-})
-
-// Cypress.Commands.add("login", () => {
-    
-//         cy.visit('logowanie')
-//         cy.get(':nth-child(1) > div > #login-user').type('cytest1', {delay: 100, force: true})
-//         cy.get(':nth-child(1) > div > #login-user').should('have.value', 'cytest1')
-//         cy.get('.input-group > #login-user').type('Tester123', {delay: 100, force: true})
-//         cy.get('.ladda-button').click()
-//         cy.title().should('eq','Kosmetyki, Makijaż, Piękno | Drogeria internetowa Rossmann.pl')
-//     } 
-// )
-
+})  
 
