@@ -1,49 +1,8 @@
-import profilePageSelectors from "./profilePageSelectors";
+
 
   class ProfilePage {
     constructor (){
         
-    }
-    toProfileTab(){
-      cy.get(profilePageSelectors.profileTab).click();
-      cy.get('h1').should('have.text','Ulubione')
-      cy.url().should('include', 'profil')
-        
-    }
-
-    toHistoryTab(){
-      cy.get(profilePageSelectors.historyTab).click();
-      cy.get('.pb-3').should('have.text','Historia zakupów')
-      cy.url().should('include', 'profil/zamowienia')
-      
-    }
-
-    toFavouriteTab(){
-      cy.get(profilePageSelectors.favoriteTab).click();
-      cy.get('h1').should('have.text','Ulubione')
-      cy.url().should('include', 'profil/ulubione')
-    
-    }
-
-    toRossneTab(){
-      cy.get(profilePageSelectors.rossneTab).click();
-      cy.get('h1').should('have.text','Rossnę!')
-      cy.url().should('include', 'profil/rossne')
-      cy.get('.settings__header').should('have.text', 'Ustawienia programu Rossnę!')
-    }
-
-    toProfileSettingsTab(){
-      cy.get(profilePageSelectors.profileSettingsTab).click();
-      cy.get('.pb-md-3').should('have.text','Ustawienia konta')
-      cy.url().should('include', 'profil/ustawienia-konta')
-      
-    }
-
-    toPaymentsTab(){
-      cy.get(profilePageSelectors.paymentsTab).click();
-      cy.get('h1').should('have.text','Płatności')
-      cy.url().should('include', 'profil/platnosci')
-      
     }
     
     //General
