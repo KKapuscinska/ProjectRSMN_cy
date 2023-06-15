@@ -1,4 +1,10 @@
 {
+    "loginEmptyUser": "cytest",
+    "loginRegularUser": "cytest1",
+    "loginClubUser": "cytest2",
+    "password": "Tester123",
+    
+    
     "favouritePath": "profil/ulubione",
     "paymentsPath": "platnosci/karty-platnicze",
     "paymentsAddPath": "platnicze/dodaj-karte",
