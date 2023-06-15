@@ -17,19 +17,22 @@ describe ('Product tests', () => {
 
     it('Add Products to Cart and verify final price.',function(){
        
-        mainPage.toNewCategoryTab()
+        cy.goToNewCategoryTab()
+
         cy.wait(500)
+
         mainPage.cookiesAgreement()
 
         const cartIndexes = [1, 2, 3, 5];
 
         cartIndexes.forEach((index) => {
         productInfo.getCart().eq(index)
-            .click({ force: true })
+          .click({ force: true })
         })
 
         cy.wait(3000)
-        mainPage.toBasketTab()
+
+        cy.goToCart()
 
         //Counting the basket value
         var sum=0
@@ -42,6 +45,7 @@ describe ('Product tests', () => {
         {
             cy.log(sum)
         })
+
         //Checking if the value of products matches the total of the cart
         productInfo.getPriceDetailsInCart().then((element) => 
         {
@@ -51,27 +55,35 @@ describe ('Product tests', () => {
         })
         for(let i=0; i<4; i++){
             productInfo.getCartRemoveProductBtn().eq(0)
-                .click()
+              .click()
         }
     })
 
     it('Add max number of one product to Cart and verify error toast.',function(){
-        mainPage.toNewCategoryTab()
+
+        cy.goToNewCategoryTab()
+
         mainPage.cookiesAgreement()
 
         for( let i = 0; i <15; i++){
         productInfo.getCart().eq(0)
-            .click({force: true})
+          .click({force: true})
+
         cy.wait(500)
+
         }
         mainPage.getToast()
-            .should('have.text', this.data.lackOfProductToast)
+          .should('have.text', this.data.lackOfProductToast)
+
         cy.wait(1000)
-        mainPage.toBasketTab()
+
+        cy.goToCart()
+
         productInfo.getCartRemoveProductBtn()
-            .click()
+          .click()
+
         productInfo.getCartRemoveProductBtn()
-            .should('not.exist')
+          .should('not.exist')
 
     })
 
