@@ -9,7 +9,8 @@
     "cyrun-chrome": "cypress run -b chrome --headless",
     "cyrun-firefox": "cypress run -b firefox --headless",
     "cyrun-edge": "cypress run -b edge -headless",
-    "recordDashboardTest": "cypress run --record --key 4e9a318e-39d7-49b5-a23c-87c8c4a3fca9 --reporter mochawesome"
+    "recordDashboardTest": "cypress run --record --key 4e9a318e-39d7-49b5-a23c-87c8c4a3fca9 --reporter mochawesome",
+    "cyrun-cloud-chrome": "cypress run --record --key 4e9a318e-39d7-49b5-a23c-87c8c4a3fca9 --spec cypress/e2e/*.js --headed --browser chrome"
   },
   "author": "Katarzyna Kapuscinska",
   "license": "MIT",
