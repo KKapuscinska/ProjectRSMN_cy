@@ -1,6 +1,6 @@
 /// <reference types="Cypress" />
 
-import { mainPage } from "../pages/pageObjects/mainPage/mainPage"
+import { mainPage } from "../pages/pageObjects/mainPage"
 import { productInfo } from "../pages/pageObjects/productInfo"
 import { rossnePage } from "../pages/pageObjects/rossnePage"
 
@@ -12,8 +12,8 @@ describe ('Rossne Page tests', () => {
         {
         this.data=data
         })
-        cy.visit('/')
-        mainPage.toRossneTab()
+        cy.visit('/rossne')
+
     })
 
     it('The Rossnę! page - appearance.',function(){
@@ -81,8 +81,7 @@ describe ('Rossne Page redirects - Top tile', () => {
         {
         this.data=data
         })
-        cy.visit('/')
-        mainPage.toRossneTab()
+        cy.visit('/rossne')
     })
 
     // it.only('Redirecting to the Rossnę! promotion.',function(){
@@ -193,8 +192,7 @@ describe ('Rossne Page redirects - Benefits module', () => {
       {
       this.data=data
       })
-      cy.visit('/')
-      mainPage.toRossneTab()
+      cy.visit('/rossne')
   })
 
     // it('Redirecting to the Rossnę! promotion.',function(){

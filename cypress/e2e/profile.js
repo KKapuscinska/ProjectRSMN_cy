@@ -1,6 +1,6 @@
 /// <reference types="Cypress" />
-import { profilePage } from "../pages/pageObjects/profilePage/profilePage"
-import { mainPage } from "../pages/pageObjects/mainPage/mainPage"
+import { profilePage } from "../pages/pageObjects/profilePage"
+import { mainPage } from "../pages/pageObjects/mainPage"
 import { productInfo } from "../pages/pageObjects/productInfo"
 
 describe ('The Profile tab tests', () => { 
