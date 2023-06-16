@@ -67,10 +67,22 @@ describe ('Rossne Page tests', () => {
 
         rossnePage.getCzysciochowaAkademia()
           .should('have.text', this.data.organizerText)
+          .and('be.visible')
 
-        rossnePage.getRossneFAQ()
+        const expectedFaqSection = [
+          this.data.nameFirstFaqSection,
+          this.data.nameSecondFaqSection,
+          this.data.nameThirdFaqSection
+        ]
+
+        rossnePage.getRossneFaqSection().each((section, index) => {
+          cy.wrap(section)
+          .should('have.text', expectedFaqSection[index])
+        })     
+
+        rossnePage.getRossneAppDownload()
           .should('be.visible')
-        
+
     })
 })
 
@@ -84,38 +96,43 @@ describe ('Rossne Page redirects - Top tile', () => {
         cy.visit('/rossne')
     })
 
-    // it.only('Redirecting to the Rossnę! promotion.',function(){
-    //     rossnePage.getFirstRossneBenefitModuleBtn().eq(0).click()
-    //     productInfo.getCheckboxOfFilterRecommended().eq(5).should('be.checked')
-    //     productInfo.getTagBtn().should('have.text', this.data.rossneTagText)
+    it('Redirecting to the Rossnę! promotion.',function(){
+
+        rossnePage.getFirstRossneBenefitModuleBtn().eq(0).click()
+
+        productInfo.getCheckboxOfFilterRecommended().eq(5)
+          .should('be.checked')
+
+        productInfo.getTagBtn()
+          .should('have.text', this.data.rossneTagText)
+
+        //Checking if all products have a rossne label
+        let productWithoutRossneLabelExists = false
+        productInfo.getTitleProductPrice().each(($product) => {
+            const $promoPrice = $product.find(productInfo.getRossneSign())
+            if (!$promoPrice.length) {
+                productWithoutRossneLabelExists = true
+              cy.wrap($product)
+                .should('have.class', 'invalid')
+            } 
+          })
+          expect(productWithoutRossneLabelExists).to.be.false
+
+        //Checking if all products have omnibus information
+        let productWithoutOmnibusInformation = false
+        productInfo.getLowBarProductInfo().each(($product) => {
+            const $promoPrice = $product.find(productInfo.getSelectorOfOmnibusInfo())
+            if (!$promoPrice.length) {
+                productWithoutOmnibusInformation = true
+              cy.wrap($product)
+                .should('have.class', 'invalid')
+            }
+          })
+          expect(productWithoutOmnibusInformation).to.be.false
         
+    })
 
-    //     //Checking if all products have a rossne label
-    //     let productWithoutRossneLabelExists = false
-    //     productInfo.getTitleProductPrice().each(($product) => {
-    //         const $promoPrice = $product.find(productInfo.getRossneSign())
-    //         if (!$promoPrice.length) {
-    //             productWithoutRossneLabelExists = true
-    //           cy.wrap($product).should('have.class', 'invalid')
-    //         } 
-    //       })
-    //       expect(productWithoutRossneLabelExists).to.be.false
-
-    //     //Checking if all products have omnibus information
-    //     let productWithoutOmnibusInformation = false
-    //     productInfo.getLowBarProductInfo().each(($product) => {
-    //         const $promoPrice = $product.find(productInfo.getOmnibusInfo())
-    //         if (!$promoPrice.length) {
-    //             productWithoutOmnibusInformation = true
-    //           cy.wrap($product).should('have.class', 'invalid')
-    //         }
-    //       })
-    //       expect(productWithoutOmnibusInformation).to.be.false
-        
-    // })
-// Exclusive promotions have been added. Code to change
-
-    it('Redirecting to the "Oferty specjalne" page.',function(){
+    it('Redirecting to the "Benefity" page.',function(){
 
         rossnePage.getFirstRossneBenefitModuleBtn().eq(1).click()
 
@@ -128,13 +145,25 @@ describe ('Rossne Page redirects - Top tile', () => {
         rossnePage.getRossneOffersImg()
           .should('have.length', this.data.numberOfStatusPhoto)
 
-        rossnePage.getRossneSocial()
+          rossnePage.getRossneSocial()
           .should('be.visible')
 
         rossnePage.getCzysciochowaAkademia()
           .should('have.text', this.data.organizerText)
+          .and('be.visible')
 
-        rossnePage.getRossneFAQ()
+        const expectedFaqSection = [
+          this.data.nameFirstFaqSection,
+          this.data.nameSecondFaqSection,
+          this.data.nameThirdFaqSection
+        ]
+
+        rossnePage.getRossneFaqSection().each((section, index) => {
+          cy.wrap(section)
+          .should('have.text', expectedFaqSection[index])
+        })     
+
+        rossnePage.getRossneAppDownload()
           .should('be.visible')
         
     })
@@ -149,13 +178,25 @@ describe ('Rossne Page redirects - Top tile', () => {
         rossnePage.getRossneSubpagesHeader()
           .should('have.text', this.data.knowledgeZoneHeader)
 
-        rossnePage.getRossneSocial()
+          rossnePage.getRossneSocial()
           .should('be.visible')
 
         rossnePage.getCzysciochowaAkademia()
           .should('have.text', this.data.organizerText)
+          .and('be.visible')
 
-        rossnePage.getRossneFAQ()
+        const expectedFaqSection = [
+          this.data.nameFirstFaqSection,
+          this.data.nameSecondFaqSection,
+          this.data.nameThirdFaqSection
+        ]
+
+        rossnePage.getRossneFaqSection().each((section, index) => {
+          cy.wrap(section)
+          .should('have.text', expectedFaqSection[index])
+        })     
+
+        rossnePage.getRossneAppDownload()
           .should('be.visible')
         
     })    
@@ -173,13 +214,25 @@ describe ('Rossne Page redirects - Top tile', () => {
         rossnePage.getRossneHero()
           .should('have.length', this.data.numberOfRossneHeroes)
 
-        rossnePage.getRossneSocial()
+          rossnePage.getRossneSocial()
           .should('be.visible')
 
         rossnePage.getCzysciochowaAkademia()
           .should('have.text', this.data.organizerText)
+          .and('be.visible')
 
-        rossnePage.getRossneFAQ()
+        const expectedFaqSection = [
+          this.data.nameFirstFaqSection,
+          this.data.nameSecondFaqSection,
+          this.data.nameThirdFaqSection
+        ]
+
+        rossnePage.getRossneFaqSection().each((section, index) => {
+          cy.wrap(section)
+          .should('have.text', expectedFaqSection[index])
+        })     
+
+        rossnePage.getRossneAppDownload()
           .should('be.visible')
         
     }) 
@@ -195,37 +248,40 @@ describe ('Rossne Page redirects - Benefits module', () => {
       cy.visit('/rossne')
   })
 
-    // it('Redirecting to the Rossnę! promotion.',function(){
+    it('Redirecting to the Rossnę! promotion.',function(){
         
-    //     rossnePage.getRossneBenefitModule().find('.btn').eq(0).scrollIntoView().click()
+        rossnePage.getRossneBenefitModule().find(mainPage.getBtnSelector()).eq(0)
+          .scrollIntoView()
+          .click()
         
-    //     //Checking if all products have a rossne label
-    //     let productWithoutRossneLabelExists = false
-    //     productInfo.getTitleProductPrice().each(($product) => {
-    //         const $promoPrice = $product.find(productInfo.getRossneSign())
-    //         if (!$promoPrice.length) {
-    //             productWithoutRossneLabelExists = true
-    //           cy.wrap($product).should('have.class', 'invalid')
-    //         }
-    //       })
-    //       expect(productWithoutRossneLabelExists).to.be.false
+        //Checking if all products have a rossne label
+        let productWithoutRossneLabelExists = false
+        productInfo.getTitleProductPrice().each(($product) => {
+            const $promoPrice = $product.find(productInfo.getRossneSign())
+            if (!$promoPrice.length) {
+                productWithoutRossneLabelExists = true
+              cy.wrap($product)
+                .should('have.class', 'invalid')
+            }
+          })
+          expect(productWithoutRossneLabelExists).to.be.false
 
-    //     //Checking if all products have omnibus information
-    //     let productWithoutOmnibusInformation = false
-    //     productInfo.getLowBarProductInfo().each(($product) => {
-    //         const $promoPrice = $product.find(productInfo.getOmnibusInfo())
-    //         if (!$promoPrice.length) {
-    //             productWithoutOmnibusInformation = true
-    //           cy.wrap($product).should('have.class', 'invalid')
-    //         }
-    //       })
-    //       expect(productWithoutOmnibusInformation).to.be.false
-    // })
-// Exclusive promotions have been added. Code to change
+        //Checking if all products have omnibus information
+        let productWithoutOmnibusInformation = false
+        productInfo.getLowBarProductInfo().each(($product) => {
+            const $promoPrice = $product.find(productInfo.getSelectorOfOmnibusInfo())
+            if (!$promoPrice.length) {
+                productWithoutOmnibusInformation = true
+              cy.wrap($product)
+                .should('have.class', 'invalid')
+            }
+          })
+          expect(productWithoutOmnibusInformation).to.be.false
+    })
     
-    it('Redirecting to the "Oferty specjalne" page.',function(){
+    it('Redirecting to the "Benefity" page.',function(){
 
-        rossnePage.getRossneBenefitModule().find('.btn').eq(1)
+        rossnePage.getRossneBenefitModule().find(mainPage.getBtnSelector()).eq(1)
           .scrollIntoView()
           .click()
 
@@ -238,20 +294,32 @@ describe ('Rossne Page redirects - Benefits module', () => {
         rossnePage.getRossneOffersImg()
           .should('have.length', this.data.numberOfStatusPhoto)
 
-        rossnePage.getRossneSocial()
+          rossnePage.getRossneSocial()
           .should('be.visible')
 
         rossnePage.getCzysciochowaAkademia()
           .should('have.text', this.data.organizerText)
+          .and('be.visible')
 
-        rossnePage.getRossneFAQ()
+        const expectedFaqSection = [
+          this.data.nameFirstFaqSection,
+          this.data.nameSecondFaqSection,
+          this.data.nameThirdFaqSection
+        ]
+
+        rossnePage.getRossneFaqSection().each((section, index) => {
+          cy.wrap(section)
+          .should('have.text', expectedFaqSection[index])
+        })     
+
+        rossnePage.getRossneAppDownload()
           .should('be.visible')
         
     })
 
     it('Redirecting to the "Stera wiedzy" page.',function(){
 
-        rossnePage.getRossneBenefitModule().find('.btn').eq(2)
+        rossnePage.getRossneBenefitModule().find(mainPage.getBtnSelector()).eq(2)
           .scrollIntoView()
             .click()
 
@@ -261,20 +329,32 @@ describe ('Rossne Page redirects - Benefits module', () => {
         rossnePage.getRossneSubpagesHeader()
           .should('have.text', this.data.knowledgeZoneHeader)
 
-        rossnePage.getRossneSocial()
+          rossnePage.getRossneSocial()
           .should('be.visible')
 
         rossnePage.getCzysciochowaAkademia()
           .should('have.text', this.data.organizerText)
+          .and('be.visible')
 
-        rossnePage.getRossneFAQ()
+        const expectedFaqSection = [
+          this.data.nameFirstFaqSection,
+          this.data.nameSecondFaqSection,
+          this.data.nameThirdFaqSection
+        ]
+
+        rossnePage.getRossneFaqSection().each((section, index) => {
+          cy.wrap(section)
+          .should('have.text', expectedFaqSection[index])
+        })     
+
+        rossnePage.getRossneAppDownload()
           .should('be.visible')
         
     })    
 
     it('Redirecting to the "Czyściochowo" page.',function(){
 
-        rossnePage.getRossneBenefitModule().find('.btn').eq(3)
+        rossnePage.getRossneBenefitModule().find(mainPage.getBtnSelector()).eq(3)
           .scrollIntoView()
           .click()
 
@@ -287,13 +367,25 @@ describe ('Rossne Page redirects - Benefits module', () => {
         rossnePage.getRossneHero()
           .should('have.length', this.data.numberOfRossneHeroes)
 
-        rossnePage.getRossneSocial()
+          rossnePage.getRossneSocial()
           .should('be.visible')
 
         rossnePage.getCzysciochowaAkademia()
           .should('have.text', this.data.organizerText)
+          .and('be.visible')
 
-        rossnePage.getRossneFAQ()
+        const expectedFaqSection = [
+          this.data.nameFirstFaqSection,
+          this.data.nameSecondFaqSection,
+          this.data.nameThirdFaqSection
+        ]
+
+        rossnePage.getRossneFaqSection().each((section, index) => {
+          cy.wrap(section)
+          .should('have.text', expectedFaqSection[index])
+        })     
+
+        rossnePage.getRossneAppDownload()
           .should('be.visible')
         
     }) 

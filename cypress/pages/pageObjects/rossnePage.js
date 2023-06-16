@@ -40,6 +40,11 @@ class RossnePage {
         return cy.get('.my-8 > .row > .offset-lg-2')
     }
 
+    getRossneFaqSection()
+    {
+        return cy.get(':nth-child(1) > .btn > span')
+    }
+
     getRossneHero()
     {
         return cy.get('.hero')
@@ -55,7 +60,10 @@ class RossnePage {
         return cy.get('.pt-6')
     }
     
-    
+    getRossneAppDownload()
+    {
+        return cy.get('.rossne-download')
+    }
 
 
 }

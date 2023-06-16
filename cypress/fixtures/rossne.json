@@ -17,6 +17,10 @@
     "knowledgeZoneHeader": "Strefa wiedzy",
     "czysciochowoHeader": "Czyściochowo dla dzieci",
     "numberOfRossneHeroes": "6",
-    "numberOfStatusPhoto": "3"
+    "numberOfStatusPhoto": "3",
+
+    "nameFirstFaqSection": "O PROGRAMIE ROSSNĘ!",
+    "nameSecondFaqSection": "KONTO ROSSMANN I APLIKACJA",
+    "nameThirdFaqSection": "DODATKOWE FUNKCJONALNOŚCI"
 
 }
