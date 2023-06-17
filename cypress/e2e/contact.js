@@ -1,7 +1,7 @@
 // <reference types="Cypress" />
 
 import { contactPage } from "../pages/pageObjects/contactPage"
-import { mainPage } from "../pages/pageObjects/mainPage/mainPage"
+import { mainPage } from "../pages/pageObjects/mainPage"
 
 describe ('Contact page', function (){
 
@@ -79,7 +79,7 @@ describe ('Contact page', function (){
         
     })
 
-    it.only('Validation of email, phone number and message field.', function(){
+    it('Validation of email, phone number and message field.', function(){
 
         contactPage.getFirstName().scrollIntoView()
 
