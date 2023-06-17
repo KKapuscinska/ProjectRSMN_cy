@@ -1,5 +1,5 @@
 /// <reference types="Cypress" />
-import { loginPage } from "../pages/pageObjects/login/loginPage"
+import { loginPage } from "../pages/pageObjects/loginPage"
 
 describe ('Login tests', () => { 
 
