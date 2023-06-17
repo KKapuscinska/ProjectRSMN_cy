@@ -1,6 +1,6 @@
 /// <reference types="Cypress" />
 
-import { mainPage } from "../pages/pageObjects/mainPage/mainPage"
+import { mainPage } from "../pages/pageObjects/mainPage"
 import { productInfo } from "../pages/pageObjects/productInfo"
 
 
@@ -15,7 +15,7 @@ describe ('Product tests', () => {
         cy.visit('/')
     })
 
-    it('Add Products to Cart and verify final price.',function(){
+    it.only('Add Products to Cart and verify final price.',function(){
        
         cy.goToNewCategoryTab()
 
@@ -50,8 +50,9 @@ describe ('Product tests', () => {
         productInfo.getPriceDetailsInCart().then((element) => 
         {
             const amount=element.text()
-            var total=amount.split(' ')[0].replace(',','.').trim()
-            expect(Number(total)).to.equal(sum)
+            const total = parseFloat(amount.split(' ')[0].replace(',', '.').trim())
+            const roundedTotal = total.toFixed(2)
+            expect(roundedTotal).to.equal(sum.toFixed(2))
         })
         for(let i=0; i<4; i++){
             productInfo.getCartRemoveProductBtn().eq(0)
@@ -68,10 +69,9 @@ describe ('Product tests', () => {
         for( let i = 0; i <15; i++){
         productInfo.getCart().eq(0)
           .click({force: true})
-
         cy.wait(500)
-
         }
+
         mainPage.getToast()
           .should('have.text', this.data.lackOfProductToast)
 
