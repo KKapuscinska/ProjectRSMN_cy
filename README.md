@@ -14,13 +14,13 @@ Below are some sample test scenarios that have been automated in this project:
 ## Login tests (5)
 
 
-Test case 1 - Incorecct Login and Password
+Test case 1 - Incorrect Login and Password
 1. Navigate to url 'https://www.rossmann.pl/logowanie'
 2. Enter incorrect login and password
 3. Click 'Zaloguj się' button
 4. Verify error message
 
-Test case 2 - Incorecct Password
+Test case 2 - Incorrect Password
 1. Navigate to url 'https://www.rossmann.pl/logowanie'
 2. Enter correct login and incorrect password
 3. Click 'Zaloguj się' button
@@ -60,7 +60,7 @@ Test case 2 - Add max number of one product to Cart and verify error toast.
 3. Add to cart maximum number of one product (e.g.10)
 4. Verify error message
 
-## Profile tests (29)
+## Profile tests (37)
 
 ### Profile tab:
 
@@ -221,20 +221,56 @@ Test case 4 - Opening the Your Shop edition - user with Your Shop selected.
 9. Click 'Wróć do ustawień' button
 10. Verify visibility of random setting module
 
-Test case 5 - Password Change - Validation of Password Field: Length, Letters, Numbers, Empty Fields, and Mismatched New Passwords.
+Test case 5 - Password Change - Validation: empty password fields.
 1. Navigate to url 'https://www.rossmann.pl/logowanie'
 2. Log in 
 3. Go to Settings page 
 4. Click 'Edytuj' button in 'Zmień hasło' module
 6. Verify url
-7. Verifi validation for Empty Password Fields
-8. Verifi validation for Invalid New Password Confirmation
-9. Verifi validation for Password Length < 8 Characters
-10. Verifi validation for Password Length > 64 Characters
-11. Verifi validation for Password with Only Numbers
-12. Verifi validation for Password with Only Letters
+7. Click 'Zapisz hasło' button
+8. Verifi validation for Empty Password Fields
 
-Test case 6 - Password Change - Toggle Password Visibility.
+Test case 6 - Password Change - Validation: invalid new password confirmation.
+1. Navigate to url 'https://www.rossmann.pl/logowanie'
+2. Log in 
+3. Go to Settings page 
+4. Click 'Edytuj' button in 'Zmień hasło' module
+6. Verify url
+7. Verifi validation for Invalid New Password Confirmation
+
+Test case 7 - Password Change - Validation: password length <8 characters.
+1. Navigate to url 'https://www.rossmann.pl/logowanie'
+2. Log in 
+3. Go to Settings page 
+4. Click 'Edytuj' button in 'Zmień hasło' module
+6. Verify url
+7. Verifi validation for Password Length < 8 Characters
+
+Test case 8 - Password Change - Validation: password length >64 characters.
+1. Navigate to url 'https://www.rossmann.pl/logowanie'
+2. Log in 
+3. Go to Settings page 
+4. Click 'Edytuj' button in 'Zmień hasło' module
+6. Verify url
+7. Verifi validation for Password Length > 64 Characters
+
+Test case 9 - Password Change - Validation: password with only numbers.
+1. Navigate to url 'https://www.rossmann.pl/logowanie'
+2. Log in 
+3. Go to Settings page 
+4. Click 'Edytuj' button in 'Zmień hasło' module
+6. Verify url
+7. Verifi validation for Password with Only Numbers
+
+Test case 10 - Password Change - Validation: password with only letters.
+1. Navigate to url 'https://www.rossmann.pl/logowanie'
+2. Log in 
+3. Go to Settings page 
+4. Click 'Edytuj' button in 'Zmień hasło' module
+6. Verify url
+7. Verifi validation for Password with Only Letters
+
+Test case 11 - Password Change - Toggle Password Visibility.
 1. Navigate to url 'https://www.rossmann.pl/logowanie'
 2. Log in 
 3. Go to Settings page 
@@ -244,7 +280,7 @@ Test case 6 - Password Change - Toggle Password Visibility.
 8. Click on the eye icon button in ech password field
 9. Verify visibility of password values
 
-Test case 7 - Adding and removing new address. 
+Test case 12 - Adding and removing new address. 
 1. Navigate to url 'https://www.rossmann.pl/logowanie'
 2. Log in 
 3. Go to Settings page 
@@ -255,35 +291,35 @@ Test case 7 - Adding and removing new address.
 8. Click 'X' button in adress card
 9. Verify invisibility of card with new adress
 
-Test case 8 - Subscribe rossmann.pl newsletter without confirmation checkbox check.
+Test case 13 - Subscribe rossmann.pl newsletter without confirmation checkbox check.
 1. Navigate to url 'https://www.rossmann.pl/logowanie'
 2. Log in
 3. Go to the Settings page
 4. Click on 'Zapisuję się' button in rossmann.pl nsl box
 5. Verify of validation message
 
-Test case 9 - Subscribe rossmann.pl newsletter.
+Test case 14 - Subscribe rossmann.pl newsletter.
 1. Navigate to url 'https://www.rossmann.pl/logowanie'
 2. Log in 
 3. Go to the Settings page
 4. Check checkbox and 'Zapisuję się' button in rossmann.pl nsl box
 5. Verify of success toast message
 
-Test case 10 - Subscribe Special Club newsletter without confirmation checkbox check.
+Test case 15 - Subscribe Special Club newsletter without confirmation checkbox check.
 1. Navigate to url 'https://www.rossmann.pl/logowanie'
 2. Log in
 3. Go to the Settings page
 4. Click on 'Zapisuję się' button in Special Club box
 5. Verify of validation message
 
-Test case 11 - Subscribe Special Club newsletter.
+Test case 16 - Subscribe Special Club newsletter.
 1. Navigate to url 'https://www.rossmann.pl/logowanie'
 2. Log in 
 3. Go to the Settings page
 4. Check checkbox and 'Zapisuję się' button in Special Club box
 5. Verify of success toast message
 
-Test case 12 - Unsubscribe Special Club newsletter, cancel confirmation.
+Test case 17 - Unsubscribe Special Club newsletter, cancel confirmation.
 1. Navigate to url 'https://www.rossmann.pl/logowanie'
 2. Log in 
 3. Go to the Settings page
@@ -291,7 +327,7 @@ Test case 12 - Unsubscribe Special Club newsletter, cancel confirmation.
 5. Click 'Jeszcze to przemyślę' button in resignation confirmation window
 6. Verify no changes
 
-Test case 13 - Unsubscribe Special Club newsletter.
+Test case 18 - Unsubscribe Special Club newsletter.
 1. Navigate to url 'https://www.rossmann.pl/logowanie'
 2. Log in 
 3. Go to the Settings page
@@ -299,7 +335,7 @@ Test case 13 - Unsubscribe Special Club newsletter.
 5. Click 'Jeszcze to przemyślę' button in resignation confirmation window
 6. Verify of success toast message
 
-Test case 14 - Unsubscribe rossmann.pl newsletter, cancel confirmation.
+Test case 19 - Unsubscribe rossmann.pl newsletter, cancel confirmation.
 1. Navigate to url 'https://www.rossmann.pl/logowanie'
 2. Log in 
 3. Go to the Settings page
@@ -307,7 +343,7 @@ Test case 14 - Unsubscribe rossmann.pl newsletter, cancel confirmation.
 5. Click 'Jeszcze to przemyślę' button in resignation confirmation window
 6. Verify no changes
 
-Test case 15 - Unsubscribe rossmann.pl newsletter.
+Test case 20 - Unsubscribe rossmann.pl newsletter.
 1. Navigate to url 'https://www.rossmann.pl/logowanie'
 2. Log in 
 3. Go to the Settings page
@@ -315,7 +351,7 @@ Test case 15 - Unsubscribe rossmann.pl newsletter.
 5. Click 'Rezygnuję' button in resignation confirmation window
 5. Verify of success toast message
 
-Test case 16 - Resignation from the Rossmann Club, cancel confirmation.
+Test case 21 - Resignation from the Rossmann Club, cancel confirmation.
 1. Navigate to url 'https://www.rossmann.pl/logowanie'
 2. Log in 
 3. Go to the Settings page

@@ -516,7 +516,7 @@ describe ('The Settings tab tests', () => {
           .should('be.visible')
     })
 
-    it('Password Change - Validation of Password Field: Length, Letters, Numbers, Empty Fields, and Mismatched New Passwords.',function(){ 
+    it('Password Change - Validation: empty password fields.',function(){ 
         
         cy.login(this.data.loginRegularUser, this.data.password)
         
@@ -529,7 +529,6 @@ describe ('The Settings tab tests', () => {
         cy.url()
           .should('include', this.data.passwordPath)
 
-        //Validation for empty password fields
         profilePage.getSaveBtn().click()
 
         profilePage.getPassErrorMsg().eq(0).find(mainPage.getFeedbackText())
@@ -540,8 +539,21 @@ describe ('The Settings tab tests', () => {
         
         profilePage.getPassErrorMsg().eq(2).find(mainPage.getFeedbackText())
           .should('have.text', this.data.emptyPassFieldValidation)
+    })
 
-        //Validation for invalid new password confirmation
+    it('Password Change - Validation: invalid new password confirmation.',function(){ 
+        
+        cy.login(this.data.loginRegularUser, this.data.password)
+      
+        cy.clickProfileIcon()
+      
+        cy.wait(1000)
+      
+        profilePage.getSettingsPasswordSection().find(mainPage.getBtnSelector()).click()
+      
+        cy.url()
+          .should('include', this.data.passwordPath)
+
         profilePage.getPassField().eq(0)
           .type(this.data.currentPass, {delay: 100, force: true})
         
@@ -562,11 +574,21 @@ describe ('The Settings tab tests', () => {
         profilePage.getPassErrorMsg().eq(2).find(mainPage.getFeedbackText())
           .should('have.text', this.data.notMatchingPassValidation)
         
-        profilePage.getBackToSettingsBtn().click()
-        
-        profilePage.getSettingsPasswordSection().find(mainPage.getBtnSelector()).click()
+    })
 
-        //Validation for password  length <8 characters
+    it('Password Change - Validation: password length <8 characters.',function(){ 
+        
+        cy.login(this.data.loginRegularUser, this.data.password)
+      
+        cy.clickProfileIcon()
+      
+        cy.wait(1000)
+      
+        profilePage.getSettingsPasswordSection().find(mainPage.getBtnSelector()).click()
+      
+        cy.url()
+          .should('include', this.data.passwordPath)
+        
         profilePage.getPassField().eq(1)
           .type(this.data.invalidShortPass)
         
@@ -575,11 +597,20 @@ describe ('The Settings tab tests', () => {
         profilePage.getPassErrorMsg().eq(1).find(mainPage.getFeedbackText())
           .should('have.text', this.data.incorrectPassLengthValidation)
         
-        profilePage.getBackToSettingsBtn().click()
-        
-        profilePage.getSettingsPasswordSection().find(mainPage.getBtnSelector()).click()
+    })
 
-        //Validation for password length >64 characters
+    it('Password Change - Validation: password length >64 characters.',function(){ 
+        
+        cy.login(this.data.loginRegularUser, this.data.password)
+      
+        cy.clickProfileIcon()
+      
+        cy.wait(1000)
+      
+        profilePage.getSettingsPasswordSection().find(mainPage.getBtnSelector()).click()
+      
+        cy.url()
+          .should('include', this.data.passwordPath)
         
         profilePage.getPassField().eq(1)
           .type(this.data.invalidLongPass, {delay: 100, force: true})
@@ -588,12 +619,22 @@ describe ('The Settings tab tests', () => {
         
         profilePage.getPassErrorMsg().eq(1).find(mainPage.getFeedbackText())
           .should('have.text', this.data.incorrectPassLengthValidation)
-       
-        profilePage.getBackToSettingsBtn().click()
-        
-        profilePage.getSettingsPasswordSection().find(mainPage.getBtnSelector()).click()
 
-        //Validation for password with only numbers
+    })
+    
+    it('Password Change - Validation: password with only numbers.',function(){ 
+        
+        cy.login(this.data.loginRegularUser, this.data.password)
+      
+        cy.clickProfileIcon()
+      
+        cy.wait(1000)
+      
+        profilePage.getSettingsPasswordSection().find(mainPage.getBtnSelector()).click()
+      
+        cy.url()
+          .should('include', this.data.passwordPath)
+        
         profilePage.getPassField().eq(1)
           .type(this.data.invalidNumberPass)
         
@@ -602,11 +643,21 @@ describe ('The Settings tab tests', () => {
         profilePage.getPassErrorMsg().eq(1).find(mainPage.getFeedbackText())
           .should('have.text', this.data.incorrectPassValidation)
        
-        profilePage.getBackToSettingsBtn().click()
+    })
+  
+    it('Password Change - Validation: password with only letters.',function(){ 
         
+        cy.login(this.data.loginRegularUser, this.data.password)
+      
+        cy.clickProfileIcon()
+      
+        cy.wait(1000)
+      
         profilePage.getSettingsPasswordSection().find(mainPage.getBtnSelector()).click()
-
-        //Validation for password with only letters
+      
+        cy.url()
+          .should('include', this.data.passwordPath)
+        
         profilePage.getPassField().eq(1)
           .type(this.data.invalidAlphaPass)
         
