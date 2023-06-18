@@ -109,7 +109,7 @@ describe ('Rossne Page redirects - Top tile', () => {
         //Checking if all products have a rossne label
         let productWithoutRossneLabelExists = false
         productInfo.getTitleProductPrice().each(($product) => {
-            const $promoPrice = $product.find(productInfo.getRossneSign())
+            const $promoPrice = $product.find(productInfo.getRossneSelectorSign())
             if (!$promoPrice.length) {
                 productWithoutRossneLabelExists = true
               cy.wrap($product)
@@ -257,7 +257,7 @@ describe ('Rossne Page redirects - Benefits module', () => {
         //Checking if all products have a rossne label
         let productWithoutRossneLabelExists = false
         productInfo.getTitleProductPrice().each(($product) => {
-            const $promoPrice = $product.find(productInfo.getRossneSign())
+            const $promoPrice = $product.find(productInfo.getRossneSelectorSign())
             if (!$promoPrice.length) {
                 productWithoutRossneLabelExists = true
               cy.wrap($product)
