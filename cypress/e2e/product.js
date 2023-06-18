@@ -12,57 +12,10 @@ describe ('Product tests', () => {
         {
             this.data=data
         })
-        cy.visit('/')
-    })
-
-    it.only('Add Products to Cart and verify final price.',function(){
-       
-        cy.goToNewCategoryTab()
-
-        cy.wait(500)
-
-        mainPage.cookiesAgreement()
-
-        const cartIndexes = [1, 2, 3, 5];
-
-        cartIndexes.forEach((index) => {
-        productInfo.getCart().eq(index)
-          .click({ force: true })
-        })
-
-        cy.wait(3000)
-
-        cy.goToCart()
-
-        //Counting the basket value
-        var sum=0
-        productInfo.getProductPriceInCart().each(($el, index, $list) => {
-            const amount=$el.text()
-            var res=amount.split(' ')[0].replace(',','.').trim()
-            sum += Number(res)
-        })
-        .then(() => 
-        {
-            cy.log(sum)
-        })
-
-        //Checking if the value of products matches the total of the cart
-        productInfo.getPriceDetailsInCart().then((element) => 
-        {
-            const amount=element.text()
-            const total = parseFloat(amount.split(' ')[0].replace(',', '.').trim())
-            const roundedTotal = total.toFixed(2)
-            expect(roundedTotal).to.equal(sum.toFixed(2))
-        })
-        for(let i=0; i<4; i++){
-            productInfo.getCartRemoveProductBtn().eq(0)
-              .click()
-        }
+        cy.visit('/szukaj')
     })
 
     it('Add max number of one product to Cart and verify error toast.',function(){
-
-        cy.goToNewCategoryTab()
 
         mainPage.cookiesAgreement()
 
@@ -86,5 +39,62 @@ describe ('Product tests', () => {
           .should('not.exist')
 
     })
+  })
+  
+
+describe ('Cart tests', () => { 
+
+  beforeEach(() => {
+      cy.fixture('product').then(function(data)
+      {
+          this.data=data
+      })
+      cy.visit('/')
+  })
+
+  it('Add Products to Cart and verify final price.',function(){
+     
+      cy.goToNewCategoryTab()
+
+      cy.wait(500)
+
+      mainPage.cookiesAgreement()
+
+      const cartIndexes = [1, 2, 3, 5];
+
+      cartIndexes.forEach((index) => {
+      productInfo.getCart().eq(index)
+        .click({ force: true })
+      })
+
+      cy.wait(3000)
+
+      cy.goToCart()
+
+      //Counting the basket value
+      var sum=0
+      productInfo.getProductPriceInCart().each(($el, index, $list) => {
+          const amount=$el.text()
+          var res=amount.split(' ')[0].replace(',','.').trim()
+          sum += Number(res)
+      })
+      .then(() => 
+      {
+          cy.log(sum)
+      })
+
+      //Checking if the value of products matches the total of the cart
+      productInfo.getPriceDetailsInCart().then((element) => 
+      {
+          const amount=element.text()
+          const total = parseFloat(amount.split(' ')[0].replace(',', '.').trim())
+          const roundedTotal = total.toFixed(2)
+          expect(roundedTotal).to.equal(sum.toFixed(2))
+      })
+      for(let i=0; i<4; i++){
+          productInfo.getCartRemoveProductBtn().eq(0)
+            .click()
+      }
+  })
 
 })
