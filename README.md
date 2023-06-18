@@ -6,6 +6,21 @@ Welcome to the "ProjectRSMN" repository! This project aims to create and execute
 The main goal of this project is to improve my proficiency in test automation by utilizing the powerful **Cypress** testing framework. 
 It has been developed solely by me, showcasing my skills and expertise in test automation.
 
+### Visual documentation of the test case listing in the Cypress project
+
+<img alt="Profile tab tests" src="https://github.com/KKapuscinska/ProjectRSMN/assets/97959893/b46d005d-1e34-460a-b10e-03006b6b95c3">
+<br>
+<img alt="Product tests" src="https://github.com/KKapuscinska/ProjectRSMN/assets/97959893/97f75911-cab0-4a46-87db-1e0c60cdadea">
+<br>
+<img alt="Filter products tests" src="https://github.com/KKapuscinska/ProjectRSMN/assets/97959893/6758c0fa-9905-4eb2-baca-9a8eae43357c">
+<br>
+<img alt="Login tests" src="https://github.com/KKapuscinska/ProjectRSMN/assets/97959893/8f82daee-7de0-4c3d-aa76-56d51f6c8d41">
+<br>
+<img alt="Contact page tests" src="https://github.com/KKapuscinska/ProjectRSMN/assets/97959893/e80cad15-dce3-45fa-b8f4-38119797a52c">
+<br>
+<img alt="Rossne tab tests" src="https://github.com/KKapuscinska/ProjectRSMN/assets/97959893/5cc60e57-d698-44ad-bc2f-de4b1522400b">
+
+
 
 Test scenarios
 Below are some sample test scenarios that have been automated in this project:
