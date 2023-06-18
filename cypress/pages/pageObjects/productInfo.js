@@ -30,14 +30,14 @@
       return cy.get('.tile-product > .pt-2')
     }
 
-    getRossneSign()
+    getRossneSelectorSign()
     {
     return '.tile-product__sign-rossne'
     }
 
     getSelectorOfRegularPrice()
     {
-      return '[data-testid="price-regular"]'
+      return '[data-testid="price-promo-old"]'
     }
 
     getSelectorOfOmnibusInfo()
@@ -80,6 +80,25 @@
       return cy.get('.btn-del')
     }
 
+    getFilterBox()
+    {
+      return cy.get('.filter__tags')
+    }
+
+    getSelectorOfFilterName()
+    {
+      return 'label.checkbox > .label > .mr-1'
+    }
+
+    getShowProductBtn()
+    {
+      return cy.get('.filters__btns > .btn')
+    }
+
+    getBrandCollaps()
+    {
+      return cy.get(':nth-child(1) > :nth-child(6) > .filter__name > .icon').click()
+    }
 }
 
 export const productInfo = new ProductInfo()

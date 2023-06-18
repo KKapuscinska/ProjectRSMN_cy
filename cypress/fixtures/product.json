@@ -1,6 +1,20 @@
 {
     "brandName": "ISANA",
     "productName": ["ISANA MEN Kork", "peleryna do golenia", "pędzel do golenia"],
-    "lackOfProductToast": "Przepraszamy, nie mamy więcej sztuk tego produktu"
+    "lackOfProductToast": "Przepraszamy, nie mamy więcej sztuk tego produktu",
+
+
+    "filterCategory1": "Czujesz klimat?",
+    "filterCategory2": "Wyjątkowy Produkt",
+    "filterCategory3": "Nowe!",
+    "filterCategory4": "Promocja",
+    "filterCategory5": "TYLKO U NAS",
+    "filterCategory6": "Promocja Rossnę!",
+    "filterCategory7": "Rabat Rossnę! Ciąża",
+    "filterCategory8": "Rabat Rossnę! Maluch",
+    "filterCategory9": "Mega",
+
+
+    "textOnDisabledShowProductsBtn": "Brak produktów"
     
 }

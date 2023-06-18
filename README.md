@@ -46,19 +46,82 @@ Test case 5 - Show Password Functionality
 
 ## Product tests (2)
 
+### Product tests:
 
-Test case 1 - Add Products to Cart and verify final price. appearance.
+Test case 1 - Add max number of one product to Cart and verify error toast.
+1. Navigate to url 'https://www.rossmann.pl/szukaj'
+3. Add to cart maximum number of one product (e.g.10)
+4. Verify error message
+
+### Cart tests:
+
+Test case 1 - Add Products to Cart and verify final price. 
 1. Navigate to url 'https://www.rossmann.pl'
 2. Click to random category tab
 3. Add to cart few items
 4. Click to cart icon
 5. Verify final price of products
 
-Test case 2 - Add max number of one product to Cart and verify error toast.
-1. Navigate to url 'https://www.rossmann.pl'
-2. Click to random category tab
-3. Add to cart maximum number of one product (e.g.10)
-4. Verify error message
+## Filter products tests (11)
+
+Test case 1 - Filter by "Czujesz klimat?".
+1. Navigate to url 'https://www.rossmann.pl/szukaj'
+2. Choose "Czujesz klimat?" filter
+3. Verify visibility of "Czujesz klimat?" tag button
+
+Test case 2 - Filter by "Wyjątkowy Produkt".
+1. Navigate to url 'https://www.rossmann.pl/szukaj'
+2. Choose ""Wyjątkowy Produkt"" filter
+3. Verify visibility of ""Wyjątkowy Produkt"" tag button
+
+Test case 3 - Filter by "Nowe!".
+1. Navigate to url 'https://www.rossmann.pl/szukaj'
+2. Choose "Nowe!" filter
+3. Verify visibility of "Nowe!" tag button
+
+Test case 4 - Filter by "Promocja".
+1. Navigate to url 'https://www.rossmann.pl/szukaj'
+2. Choose "Promocja" filter
+3. Verify visibility of "Promocja" tag button
+4. Check that each product has a promo price and omnibus info
+
+Test case 5 - Filter by "TYLKO U NAS".
+1. Navigate to url 'https://www.rossmann.pl/szukaj'
+2. Choose "TYLKO U NAS" filter
+3. Verify visibility of "TYLKO U NAS" tag button
+
+Test case 6 - Filter by "Promocja Rossnę!".
+1. Navigate to url 'https://www.rossmann.pl/szukaj'
+2. Choose "Promocja Rossnę!" filter
+3. Verify visibility of "Promocja Rossnę!" tag button
+4. Check that each product has a rossne label and omnibus info
+
+Test case 7 - Filter by "Rabat Rossnę! Ciąża".
+1. Navigate to url 'https://www.rossmann.pl/szukaj'
+2. Choose "Rabat Rossnę! Ciąża" filter
+3. Verify visibility of "Rabat Rossnę! Ciąża" tag button
+
+Test case 8 - Filter by "Rabat Rossnę! Maluch".
+1. Navigate to url 'https://www.rossmann.pl/szukaj'
+2. Choose "Rabat Rossnę! Maluch" filter
+3. Verify visibility of "Rabat Rossnę! Maluch" tag button
+
+Test case 9 - Filter by "Mega".
+1. Navigate to url 'https://www.rossmann.pl/szukaj'
+2. Choose "Mega" filter
+3. Verify visibility of "Mega" tag button
+
+Test case 10 - Filter by multiple filters.
+1. Navigate to url 'https://www.rossmann.pl/szukaj'
+2. Choose few random filter
+3. Verify visibility of correct tag button
+
+Test case 11- Verify Show Products Button State When All Filters Are Selected (Disabled).
+Test case 1 - Filter by "Czujesz klimat?".
+1. Navigate to url 'https://www.rossmann.pl/szukaj'
+2. Choose all filer
+3. Verify if there is zero product to show
+
 
 ## Profile tests (37)
 

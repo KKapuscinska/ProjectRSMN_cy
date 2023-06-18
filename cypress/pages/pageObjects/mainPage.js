@@ -28,7 +28,16 @@ class MainPage {
     {
         return '.invalid-feedback'
     }
+  
+    getCheckboxSelector()
+    {
+        return '.checkbox'
+    }
 
+    getSelectorOfCloseBtn()
+    {
+        return '.btn-close'
+    }
     
 }
 
