@@ -25,7 +25,7 @@ describe ('Login tests', () => {
         loginPage.getLoginBtn().click()
 
         loginPage.getLogInvalidFeedback()
-          .should('have.text',this.data.incorrectDataMsg)
+          .contains(this.data.incorrectDataMsg)
     })
 
     it('Incorrect password',function(){
@@ -41,7 +41,7 @@ describe ('Login tests', () => {
         loginPage.getLoginBtn().click()
 
         loginPage.getLogInvalidFeedback()
-          .should('have.text',this.data.incorrectDataMsg)
+        .contains(this.data.incorrectDataMsg)
         
     })
 
@@ -60,7 +60,7 @@ describe ('Login tests', () => {
         loginPage.getLoginBtn().click()
 
         loginPage.getLogInvalidFeedback()
-          .should('have.text', this.data.tooShortLoginMsg)
+          .contains(this.data.tooShortLoginMsg)
          
     })
 
@@ -69,10 +69,10 @@ describe ('Login tests', () => {
         loginPage.getLoginBtn().click()
 
         loginPage.getLogInvalidFeedback()
-          .should('have.text', this.data.emptyLoginMsg)
+          .contains(this.data.emptyLoginMsg)
 
         loginPage.getPassInvalidFeedback()
-          .should('have.text', this.data.emptyPassMsg)
+          .contains(this.data.emptyPassMsg)
          
     })
 

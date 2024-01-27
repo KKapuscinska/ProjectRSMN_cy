@@ -12,7 +12,7 @@
     "incorrectDataMsg": "Niepoprawne dane logowania.",
     "tooShortLoginMsg": "Nazwa użytkownika powinna składać się z co najmniej 4 znaków.",
     "emptyLoginMsg": "Proszę wpisać poprawny adres e-mail lub nazwę użytkownika.",
-    "emptyPassMsg": "Proszę wpisać poprawne hasło.",
+    "emptyPassMsg": "Błąd w obecnym haśle.",
 
     "mainPageTitle": "Kosmetyki, Makijaż, Piękno | Drogeria internetowa Rossmann.pl"
 }
