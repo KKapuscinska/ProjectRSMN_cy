@@ -15,7 +15,6 @@
   "author": "Katarzyna Kapuscinska",
   "dependencies": {
     "@testing-library/cypress": ">=8.0.3",
-    "cypress": "^10.11.0",
     "cypress-failed-log": ">=2.9.5",
     "jquery": "^3.6.4",
     "mocha": ">=10.0.0",
@@ -24,6 +23,7 @@
     "path": ">=0.12.7"
   },
   "devDependencies": {
+    "cypress": "^13.6.3",
     "cypress-plugin-retries": "^1.5.2"
   }
 }
