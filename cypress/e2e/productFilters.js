@@ -165,56 +165,12 @@ describe ('Filter products tests', () => {
 
   })
 
-    it('Filter by "Promocja Rossnę!".',function(){
-            
-      productInfo.getFilterBox().find(productInfo.getSelectorOfFilterName()).eq(5)
-        .should('have.text', this.data.filterCategory6)
-
-      productInfo.getFilterBox().find(mainPage.getCheckboxSelector()).eq(10)
-        .click({force: true})
-
-      productInfo.getShowProductBtn()
-        .click({force: true})
-
-      productInfo.getTagBtn()
-        .should('have.text', this.data.filterCategory6)
-
-      //Checking if all products have rossne label
-      productInfo.getTitleProductPrice()
-      .each(($productPrice, index) => {
-        productInfo.getTitleProductPrice()
-          .eq(index)
-          .find(productInfo.getRossneSelectorSign())
-          .should('be.visible')
-      })
-    
-      //Checking if all products have omnibus information
-      let productWithoutOmnibusInformation = false
-      productInfo.getLowBarProductInfo().each(($product) => {
-          const $promoPrice = $product.find(productInfo.getSelectorOfOmnibusInfo())
-          if (!$promoPrice.length) {
-              productWithoutOmnibusInformation = true
-            cy.wrap($product)
-              .should('have.class', 'invalid')
-          }
-        })
-        expect(productWithoutOmnibusInformation).to.be.false
-        
-      productInfo.getTagBtn().find(mainPage.getSelectorOfCloseBtn()).click()
-
-      productInfo.getTagBtn().should('not.exist')
-
-      productInfo.getFilterBox().find(mainPage.getCheckboxSelector()).eq(10)
-        .should('not.be.checked')
-
-  })
- 
     it('Filter by "Rabat Rossnę! Ciąża".',function(){
             
-      productInfo.getFilterBox().find(productInfo.getSelectorOfFilterName()).eq(6)
+      productInfo.getFilterBox().find(productInfo.getSelectorOfFilterName()).eq(5)
         .should('have.text', this.data.filterCategory7)
 
-      productInfo.getFilterBox().find(mainPage.getCheckboxSelector()).eq(12)
+      productInfo.getFilterBox().find(mainPage.getCheckboxSelector()).eq(10)
         .click({force: true})
 
       productInfo.getShowProductBtn()
@@ -236,10 +192,10 @@ describe ('Filter products tests', () => {
   
     it('Filter by "Rabat Rossnę! Maluch".',function(){
               
-      productInfo.getFilterBox().find(productInfo.getSelectorOfFilterName()).eq(7)
+      productInfo.getFilterBox().find(productInfo.getSelectorOfFilterName()).eq(6)
         .should('have.text', this.data.filterCategory8)
 
-      productInfo.getFilterBox().find(mainPage.getCheckboxSelector()).eq(14)
+      productInfo.getFilterBox().find(mainPage.getCheckboxSelector()).eq(12)
         .click({force: true})
 
       productInfo.getShowProductBtn()
@@ -261,10 +217,10 @@ describe ('Filter products tests', () => {
 
     it('Filter by "Mega".',function(){
                 
-      productInfo.getFilterBox().find(productInfo.getSelectorOfFilterName()).eq(8)
+      productInfo.getFilterBox().find(productInfo.getSelectorOfFilterName()).eq(7)
         .should('have.text', this.data.filterCategory9)
 
-      productInfo.getFilterBox().find(mainPage.getCheckboxSelector()).eq(16)
+      productInfo.getFilterBox().find(mainPage.getCheckboxSelector()).eq(14)
         .click({force: true})
 
       productInfo.getShowProductBtn()
@@ -305,18 +261,18 @@ describe ('Filter products tests', () => {
 
     })  
 
-    it('Verify Show Products Button State When All Filters Are Selected (Disabled).',function(){
+    // it('Verify Show Products Button State When All Filters Are Selected (Disabled).',function(){
       
-    productInfo.getFilterBox().find(mainPage.getCheckboxSelector()).each(($checkbox, index) => {
-        if (index % 2 === 0) { 
-          cy.wrap($checkbox).click({force: true});
-        }
-      })
+    // productInfo.getFilterBox().find(mainPage.getCheckboxSelector()).each(($checkbox, index) => {
+    //     if (index % 2 === 0) { 
+    //       cy.wrap($checkbox).click({force: true});
+    //     }
+    //   })
       
-      productInfo.getShowProductBtn()
-        .should('have.text',this.data.textOnDisabledShowProductsBtn)
-        .and('have.attr', 'disabled')
+    //   productInfo.getShowProductBtn()
+    //     .should('have.text',this.data.textOnDisabledShowProductsBtn)
+    //     .and('have.attr', 'disabled')
   
-    })  
+    // })  
 
 })

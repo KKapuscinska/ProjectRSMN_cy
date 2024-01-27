@@ -27,7 +27,7 @@
 
     getLowBarProductInfo()
     {
-      return cy.get('.tile-product > .pt-2')
+      return cy.get('.align-items-center.p-2')
     }
 
     getRossneSelectorSign()
@@ -67,7 +67,7 @@
 
     getProductPriceInCart()
     {
-      return cy.get('.cart-product__current-price')
+      return cy.get('.price-details__value-total')
     }
 
     getPriceDetailsInCart()
