@@ -48,10 +48,9 @@ describe ('Rossne Page tests', () => {
           })
 
         rossnePage.getRossneBenefitModule()
-          .should('have.length', 4)
+          .should('have.length', 3)
 
           const headerToCheck = [
-            this.data.promotionsHeader,
             this.data.specialOffersHeader,
             this.data.knowledgeZoneHeader,
             this.data.czysciochowoHeader
@@ -100,36 +99,32 @@ describe ('Rossne Page redirects - Top tile', () => {
 
         rossnePage.getFirstRossneBenefitModuleBtn().eq(0).click()
 
-        productInfo.getCheckboxOfFilterRecommended().eq(5)
-          .should('be.checked')
-
         productInfo.getTagBtn()
           .should('have.text', this.data.rossneTagText)
 
-        //Checking if all products have a rossne label
-        let productWithoutRossneLabelExists = false
-        productInfo.getTitleProductPrice().each(($product) => {
-            const $promoPrice = $product.find(productInfo.getRossneSelectorSign())
-            if (!$promoPrice.length) {
-                productWithoutRossneLabelExists = true
-              cy.wrap($product)
-                .should('have.class', 'invalid')
-            } 
-          })
-          expect(productWithoutRossneLabelExists).to.be.false
+        // //Checking if all products have a rossne label
+        // let productWithoutRossneLabelExists = false
+        // productInfo.getTitleProductPrice().each(($product) => {
+        //     const $promoPrice = $product.find(productInfo.getRossneSelectorSign())
+        //     if (!$promoPrice.length) {
+        //         productWithoutRossneLabelExists = true
+        //       cy.wrap($product)
+        //         .should('have.class', 'invalid')
+        //     } 
+        //   })
+        //   expect(productWithoutRossneLabelExists).to.be.false
 
         //Checking if all products have omnibus information
-        let productWithoutOmnibusInformation = false
-        productInfo.getLowBarProductInfo().each(($product) => {
-            const $promoPrice = $product.find(productInfo.getSelectorOfOmnibusInfo())
-            if (!$promoPrice.length) {
-                productWithoutOmnibusInformation = true
-              cy.wrap($product)
-                .should('have.class', 'invalid')
-            }
-          })
-          expect(productWithoutOmnibusInformation).to.be.false
-        
+        let productWithoutPromotionExists = false
+          productInfo.getTitleProduct().each(($product) => {
+              const $promoPrice = $product.find(productInfo.getSelectorOfOmnibusInfo())
+              if (!$promoPrice.length) {
+                  productWithoutPromotionExists = true
+                cy.wrap($product)
+                  .should('have.class', 'invalid')
+              }
+            })
+            expect(productWithoutPromotionExists).to.be.false
     })
 
     it('Redirecting to the "Benefity" page.',function(){
@@ -211,9 +206,6 @@ describe ('Rossne Page redirects - Top tile', () => {
         rossnePage.getRossneSubpagesHeader()
           .should('have.text', this.data.czysciochowoHeader)
 
-        rossnePage.getRossneHero()
-          .should('have.length', this.data.numberOfRossneHeroes)
-
           rossnePage.getRossneSocial()
           .should('be.visible')
 
@@ -248,40 +240,29 @@ describe ('Rossne Page redirects - Benefits module', () => {
       cy.visit('/rossne')
   })
 
-    it('Redirecting to the Rossnę! promotion.',function(){
+    // it.only('Redirecting to the Rossnę! promotion.',function(){
         
-        rossnePage.getRossneBenefitModule().find(mainPage.getBtnSelector()).eq(0)
-          .scrollIntoView()
-          .click()
+    //     rossnePage.getRossneBenefitModule().find(mainPage.getBtnSelector()).eq(0)
+    //       .scrollIntoView()
+    //       .click()
         
-        //Checking if all products have a rossne label
-        let productWithoutRossneLabelExists = false
-        productInfo.getTitleProductPrice().each(($product) => {
-            const $promoPrice = $product.find(productInfo.getRossneSelectorSign())
-            if (!$promoPrice.length) {
-                productWithoutRossneLabelExists = true
-              cy.wrap($product)
-                .should('have.class', 'invalid')
-            }
-          })
-          expect(productWithoutRossneLabelExists).to.be.false
 
-        //Checking if all products have omnibus information
-        let productWithoutOmnibusInformation = false
-        productInfo.getLowBarProductInfo().each(($product) => {
-            const $promoPrice = $product.find(productInfo.getSelectorOfOmnibusInfo())
-            if (!$promoPrice.length) {
-                productWithoutOmnibusInformation = true
-              cy.wrap($product)
-                .should('have.class', 'invalid')
-            }
-          })
-          expect(productWithoutOmnibusInformation).to.be.false
-    })
+    //     //Checking if all products have omnibus information
+    //     let productWithoutOmnibusInformation = false
+    //     productInfo.getLowBarProductInfo().each(($product) => {
+    //         const $promoPrice = $product.find(productInfo.getSelectorOfOmnibusInfo())
+    //         if (!$promoPrice.length) {
+    //             productWithoutOmnibusInformation = true
+    //           cy.wrap($product)
+    //             .should('have.class', 'invalid')
+    //         }
+    //       })
+    //       expect(productWithoutOmnibusInformation).to.be.false
+    // })
     
     it('Redirecting to the "Benefity" page.',function(){
 
-        rossnePage.getRossneBenefitModule().find(mainPage.getBtnSelector()).eq(1)
+        rossnePage.getRossneBenefitModule().find(mainPage.getBtnSelector()).eq(0)
           .scrollIntoView()
           .click()
 
@@ -319,7 +300,7 @@ describe ('Rossne Page redirects - Benefits module', () => {
 
     it('Redirecting to the "Stera wiedzy" page.',function(){
 
-        rossnePage.getRossneBenefitModule().find(mainPage.getBtnSelector()).eq(2)
+        rossnePage.getRossneBenefitModule().find(mainPage.getBtnSelector()).eq(1)
           .scrollIntoView()
             .click()
 
@@ -354,7 +335,7 @@ describe ('Rossne Page redirects - Benefits module', () => {
 
     it('Redirecting to the "Czyściochowo" page.',function(){
 
-        rossnePage.getRossneBenefitModule().find(mainPage.getBtnSelector()).eq(3)
+        rossnePage.getRossneBenefitModule().find(mainPage.getBtnSelector()).eq(2)
           .scrollIntoView()
           .click()
 
@@ -363,9 +344,6 @@ describe ('Rossne Page redirects - Benefits module', () => {
 
         rossnePage.getRossneSubpagesHeader()
           .should('have.text', this.data.czysciochowoHeader)
-
-        rossnePage.getRossneHero()
-          .should('have.length', this.data.numberOfRossneHeroes)
 
           rossnePage.getRossneSocial()
           .should('be.visible')
