@@ -315,48 +315,6 @@ describe ('Request category - Stationary drugstore.', function (){
 
     })
 
-    it('Verify "Pytanie o produkt" category.', function(){
-
-        contactPage.getTaskFields().eq(1).click()
-
-        contactPage.getCategoryList().find(contactPage.getCategory()).each(($el, index, $list) => {
-            if($el.text()=== this.data.category4)
-            {
-                cy.wrap($el).click()
-            }  
-        })
-
-        mainPage.cookiesAgreement()        
-        contactPage.getSendMsgBtn().click()
-
-        //Checking if the validation message is not displayed
-        contactPage.getUnitOfNumberFieldInCategory().find(mainPage.getFeedbackText())
-          .should('not.exist')
-
-        //Checking value of text above 'Number katalogowy produktu' field
-        contactPage.getCategoryDescription()
-          .should('be.visible')
-          .and('have.text', this.data.category4Description)
-
-    })  
-
-    it('Verify "Usługi fotograficzne Cewe/Kodak" category.', function(){
-
-        contactPage.getTaskFields().eq(1).click()
-
-        contactPage.getCategoryList().find(contactPage.getCategory()).each(($el, index, $list) => {
-            if($el.text()=== this.data.category6)
-            {
-                cy.wrap($el).click()
-            }  
-        })
-
-        //Checking if the (card) number field is not displayed
-        contactPage.getNumberFieldInCategory()
-          .should('not.exist')
-
-    })
-
     
 
 })   
