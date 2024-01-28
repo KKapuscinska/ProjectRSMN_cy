@@ -10,7 +10,7 @@ module.exports = defineConfig({
   projectId: "dc412k",
   chromeWebSecurity: true,
 	defaultCommandTimeout: 6000,
-  execTimeout: 60000,
+  execTimeout: 2000,
   fixturesFolder: 'cypress/fixtures',
   numTestsKeptInMemory: 20,
   pageLoadTimeout: 60000,
