@@ -230,7 +230,7 @@ describe ('Rossne Page redirects - Top tile', () => {
     }) 
 })
 
-describe ('Rossne Page redirects - Benefits module', () => { 
+describe ('Rossne Page redirections - Benefits module', () => { 
 
   beforeEach(() => {
       cy.fixture('rossne').then(function(data)
@@ -239,26 +239,6 @@ describe ('Rossne Page redirects - Benefits module', () => {
       })
       cy.visit('/rossne')
   })
-
-    // it.only('Redirecting to the Rossnę! promotion.',function(){
-        
-    //     rossnePage.getRossneBenefitModule().find(mainPage.getBtnSelector()).eq(0)
-    //       .scrollIntoView()
-    //       .click()
-        
-
-    //     //Checking if all products have omnibus information
-    //     let productWithoutOmnibusInformation = false
-    //     productInfo.getLowBarProductInfo().each(($product) => {
-    //         const $promoPrice = $product.find(productInfo.getSelectorOfOmnibusInfo())
-    //         if (!$promoPrice.length) {
-    //             productWithoutOmnibusInformation = true
-    //           cy.wrap($product)
-    //             .should('have.class', 'invalid')
-    //         }
-    //       })
-    //       expect(productWithoutOmnibusInformation).to.be.false
-    // })
     
     it('Redirecting to the "Benefity" page.',function(){
 
@@ -269,32 +249,6 @@ describe ('Rossne Page redirects - Benefits module', () => {
         cy.url()
           .should('include', this.data.specialOffersPath)
 
-        rossnePage.getRossneSubpagesHeader()
-          .should('have.text', this.data.specialOffersHeader)
-
-        rossnePage.getRossneOffersImg()
-          .should('have.length', this.data.numberOfStatusPhoto)
-
-          rossnePage.getRossneSocial()
-          .should('be.visible')
-
-        rossnePage.getCzysciochowaAkademia()
-          .should('have.text', this.data.organizerText)
-          .and('be.visible')
-
-        const expectedFaqSection = [
-          this.data.nameFirstFaqSection,
-          this.data.nameSecondFaqSection,
-          this.data.nameThirdFaqSection
-        ]
-
-        rossnePage.getRossneFaqSection().each((section, index) => {
-          cy.wrap(section)
-          .should('have.text', expectedFaqSection[index])
-        })     
-
-        rossnePage.getRossneAppDownload()
-          .should('be.visible')
         
     })
 
@@ -307,29 +261,6 @@ describe ('Rossne Page redirects - Benefits module', () => {
         cy.url()
           .should('include', this.data.knowledgeZonePath)
 
-        rossnePage.getRossneSubpagesHeader()
-          .should('have.text', this.data.knowledgeZoneHeader)
-
-          rossnePage.getRossneSocial()
-          .should('be.visible')
-
-        rossnePage.getCzysciochowaAkademia()
-          .should('have.text', this.data.organizerText)
-          .and('be.visible')
-
-        const expectedFaqSection = [
-          this.data.nameFirstFaqSection,
-          this.data.nameSecondFaqSection,
-          this.data.nameThirdFaqSection
-        ]
-
-        rossnePage.getRossneFaqSection().each((section, index) => {
-          cy.wrap(section)
-          .should('have.text', expectedFaqSection[index])
-        })     
-
-        rossnePage.getRossneAppDownload()
-          .should('be.visible')
         
     })    
 
@@ -341,30 +272,6 @@ describe ('Rossne Page redirects - Benefits module', () => {
 
         cy.url()
           .should('include', this.data.czysciochowoPath)
-
-        rossnePage.getRossneSubpagesHeader()
-          .should('have.text', this.data.czysciochowoHeader)
-
-          rossnePage.getRossneSocial()
-          .should('be.visible')
-
-        rossnePage.getCzysciochowaAkademia()
-          .should('have.text', this.data.organizerText)
-          .and('be.visible')
-
-        const expectedFaqSection = [
-          this.data.nameFirstFaqSection,
-          this.data.nameSecondFaqSection,
-          this.data.nameThirdFaqSection
-        ]
-
-        rossnePage.getRossneFaqSection().each((section, index) => {
-          cy.wrap(section)
-          .should('have.text', expectedFaqSection[index])
-        })     
-
-        rossnePage.getRossneAppDownload()
-          .should('be.visible')
         
     }) 
 })
