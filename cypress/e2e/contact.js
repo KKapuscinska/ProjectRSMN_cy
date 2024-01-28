@@ -56,17 +56,17 @@ describe ('Contact page', function (){
 
     })
 
-    it('Sending a blank contact form.', function(){
-      
-        contactPage.getSendMsgBtn()
-          .scrollIntoView()
-          .click()
+    it('Validation of email, phone number and message field.', function(){
+
+      contactPage.getSendMsgBtn()
+      .scrollIntoView()
+      .click()
 
         //Checking the validation message - blank email field
         contactPage.getUserContactFields().eq(0).find(mainPage.getFeedbackText())
           .should('be.visible')
           .and('have.text', this.data.emailLackFeedback)
-          
+      
         //Checking the validation message - blank message field
         contactPage.getTaskFields().find(mainPage.getFeedbackText())
           .should('be.visible')
@@ -76,10 +76,6 @@ describe ('Contact page', function (){
         contactPage.getCaptcha().find(mainPage.getFeedbackText())
           .should('be.visible')
           .and('have.text', this.data.captchaInvalidFeedback)
-        
-    })
-
-    it('Validation of email, phone number and message field.', function(){
 
         contactPage.getFirstName().scrollIntoView()
 
@@ -99,8 +95,6 @@ describe ('Contact page', function (){
         contactPage.getMsg()
           .type(this.data.tooShortMsg)
           .should('have.value', (this.data.tooShortMsg))
-
-        cy.scrollTo('bottom')
 
         contactPage.getSendMsgBtn().click()
 
