@@ -1,0 +1,17 @@
+# Product tests:
+
+Preconditions:
+1. Navigate to url 'www.rossmann.pl/szukaj'
+
+
+TestCase 1 - Add max number of one product to Cart and verify error toast.
+
+    1. Add the maximum number of one product to the cart
+    2. Verify error toast
+
+
+TestCase 2 - Add Products to Cart and verify final price.
+
+    1. Add few products to the cart
+    2. Go to cart and check if sum value of products matches with final price
+
