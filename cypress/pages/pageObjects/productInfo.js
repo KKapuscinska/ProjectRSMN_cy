@@ -15,29 +15,14 @@
       return cy.get('.tile-product__img')
     }
 
-    getTitleProductPrice()
-    {
-        return cy.get('.tile-product__price')
-    }  
-
-    getRegularPrice()
-    {
-      return cy.get('[data-testid="price-regular"]')
-    }
-
     getLowBarProductInfo()
     {
       return cy.get('.align-items-center.p-2')
     }
 
-    getRossneSelectorSign()
+    getSelectorOfRegularPriceInfo()
     {
-    return '.tile-product__sign-rossne'
-    }
-
-    getSelectorOfRegularPrice()
-    {
-      return '[data-testid="price-promo-old"]'
+      return '.tile-product__lowest-price'
     }
 
     getSelectorOfOmnibusInfo()

@@ -110,16 +110,27 @@ describe ('Filter products tests', () => {
       productInfo.getTagBtn()
         .should('have.text', this.data.filterCategory4)
       
-      //Verification of whether all products have a promotional price
-      productInfo.getTitleProductPrice()
-      .each(($productPrice, index) => {
-        productInfo.getTitleProductPrice()
-          .eq(index)
-          .find(productInfo.getSelectorOfPromoPrice())
-          .should('be.visible')
-        })
+      // productInfo.getTitleProductPrice()
+      // .each(($productPrice, index) => {
+      //   productInfo.getTitleProductPrice()
+      //     .eq(index)
+      //     .find(productInfo.getSelectorOfPromoPrice())
+      //     .should('be.visible')
+      //   })
 
-      //Verification of whether all products have a omnibus information
+      //Checking if all products have regular price information
+      let productWithoutRegularPriceInfoExists = false
+      productInfo.getTitleProduct().each(($product) => {
+          const $promoPrice = $product.find(productInfo.getSelectorOfRegularPriceInfo())
+          if (!$promoPrice.length) {
+            productWithoutRegularPriceInfoExists = true
+            cy.wrap($product)
+              .should('have.class', 'invalid')
+          }
+        })
+        expect(productWithoutRegularPriceInfoExists).to.be.false
+        
+      //Checking if all products have omnibus information
       let productWithoutPromotionExists = false
       productInfo.getTitleProduct().each(($product) => {
           const $promoPrice = $product.find(productInfo.getSelectorOfOmnibusInfo())
