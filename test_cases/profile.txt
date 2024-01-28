@@ -1,0 +1,256 @@
+# Purchase history tab:
+
+Preconditions:
+1. Navigate to url 'www.rossmann.pl/logowanie'
+
+
+TestCase 1 - User without any orders - tab appearance.
+
+    1. Log in with an empty user account
+    2. Go to Profile and click on History tab
+    3. Verify visibility of the empty list and Payments logos module
+    4. Verify invisibility of purchase history cards
+
+
+TestCase 2 - User with order - tab appearance.
+
+    1. Log in with a user account that has purchase history
+    2. Go to Profile and click on History tab
+    3. Verify visibility of payments history card and Payments logos module
+    4. Verify invisibility of empty list
+
+
+# Favorite tab:
+
+Preconditions:
+1. Navigate to url 'www.rossmann.pl/logowanie'
+
+
+TestCase 1 - User without any favorite products - tab appearance.
+
+    1. Log in with an empty user account
+    2. Go to Profile and click on Favourite tab
+    3. Verify visibility of empty list, info about 0 products and Payments logos module
+
+
+TestCase 2 - User with favorite products - tab appearance.
+
+    1. Log in with a user account that has favorite products
+    2. Go to Profile and click on Favourite tab
+    3. Verify visibility of 'Add products to the cart' button, info about limit of favourite products, category list, promotion switch and Payments logos module
+    4. Verify invisibility of empty list
+
+
+TestCase 3 - Displaying only promotional products.
+
+    1. Log in with a user account that has favorite products
+    2. Go to Settings page and click on Favourite tab
+    3. Click 'Only in promotions' switch
+    4. Verify the display of omnibus info and info about regular price on all products on page
+
+
+# Rossne tab:
+
+Preconditions for tc 2-7:
+1. Navigate to url 'www.rossmann.pl/logowanie'
+2. Log in with a Rossne user account
+3. Go to Profile -> Rossne tab
+
+
+TestCase 1 - Non-Rossnę! Program User Checks Profile for Rossnę! Tab Absence.
+
+    1. Navigate to url 'www.rossmann.pl/logowanie'
+    2. Log in with non-rossne user
+    3. Go to the Profile
+    4. Verify invisibility of Rossne tab
+
+
+TestCase 2 - Rossnę! Program User - tab appearance.
+
+    1. Verify visibility of 
+        -nsl rossne box, 
+        - rossne program box 
+        - Payments logos module
+
+
+TestCase 3 - Subscribe Rossne! newsletter without confirmation checkbox check.
+
+    1. Subscribe rossne newsletter without selecting consent checkbox
+    2. Verify error message
+
+
+TestCase 4 - Subscribe Rossne! newsletter.
+
+    1. Subscribe rossne newsletter with selecting consent checkbox
+    2. Verify of success toast message
+
+
+TestCase 5 - Unsubscribe Rossnę! newsletter, cancel confirmation.
+
+    1. Unsubscribe rossne newsletter but cancel confirm in confirmation window
+    2. Verify no changes
+
+
+TestCase  6 - Unsubscribe Rossnę! newsletter.
+
+    1. Unsubscribe rossne newsletter
+    2. Verify success toast message
+
+
+TestCase 7 - Resignation from the Rossnę! program, cancel confirmation.
+
+    1. Resign from the rossne program but cancel confirm in confirmation window
+    2. Verify no changes    
+
+
+# Settings tab:
+
+Preconditions for tc 1-4:
+1. Navigate to url 'www.rossmann.pl/logowanie'
+
+Preconditions for tc 5-15:
+1. Navigate to url 'www.rossmann.pl/logowanie'
+2. Log in and go to Profile
+
+
+TestCase 1 - Plain user - tab appearance.
+
+    1. Log in with empty user account
+    2. Go to Profile 
+    3. Verify content of:
+        - RossmannClub box - header
+        - 'Your store' module - header and button
+    4. Verify visibility of the modules:
+        - 'My data',
+        - 'Change password', 
+        - 'Adress',
+        - 'Delete account' button
+    5. Verify that the nsl RossmannClub checkbox is unchecked  
+
+
+TestCase 2 - User in Rossmann Club - tab appearance.
+
+    1. Log in as a user in Rossmann Club
+    2. Go to Profile
+    3. Verify content of:
+        - RossmannClub box - header
+        - RossmannClub nsl box - header
+    4. Verify visibility of the modules:
+        - 'My data',
+        - 'Change password', 
+        - 'Adress',
+        - 'Delete account' button
+        - resign btn in RossmannClub box
+
+
+TestCase 3 - Opening the Your Shop edition - user without Your Shop selected.
+
+    1. Log in with empty user account
+    2. Go to Profile
+    3. Click 'Select store' button in 'Your store' module
+    4. Verify url and header of new page
+    5. Type city name in search field
+    6. Check if the list of stores is visible
+    7. Click 'back' button
+    8. Verify setting url
+
+
+TestCase 4 - Opening the Your Shop edition - user with Your Shop selected.
+
+    1. Log in with a user account that has selected favourite store
+    2. Go to Profile 
+    3. Verify visibility of shop opening hours and adress in 'Your store' module
+    4. Click 'Edit' button in 'Your store' module
+    5. Verify url and header of new page
+    6. Type city name in search field
+    7. Verify visibility of the list of stores
+
+Preconditions for tc 5-15:
+1. Navigate to url 'www.rossmann.pl/logowanie'
+2. Log in and go to Profile
+
+
+TestCase 5 - Password Change - Validation.
+
+    1. Click 'Edit' button in 'Change password' module
+    2. Check validation of:
+        - empty pass fields
+        - pass entered are not the same
+        - pass length <8 or >64 char.
+        - pass with only numbers/letters 
+    3. Click 'show password' option
+    4. Verify visibility of the password
+
+
+TestCase 6 - Adding and removing new address. 
+
+    1. Add a new address and check if it has been added to your account
+    2. Delete the previously added address and check if it was correctly removed from the account
+
+
+TestCase 7 - Subscribe rossmann.pl newsletter without confirmation checkbox check.
+
+    1. Subscribe rossmann.pl newsletter without selecting consent checkbox
+    2. Verify error message
+
+
+TestCase 8 - Subscribe rossmann.pl newsletter.
+
+    1. Subscribe rossmann.pl newsletter with selecting consent checkbox
+    2. Verify of success toast message
+
+
+TestCase 9 - Subscribe Special Club newsletter without confirmation checkbox check.
+
+    1. Subscribe Special Club newsletter without selecting consent checkbox
+    2. Verify error message
+
+
+TestCase 10 - Subscribe Special Club newsletter.
+
+    1. Subscribe Special Club newsletter with selecting consent checkbox
+    2. Verify of success toast message
+
+
+TestCase 11 - Unsubscribe Special Club newsletter, cancel confirmation.
+
+    1. Unsubscribe Special Club newsletter but cancel confirm in confirmation window
+    2. Verify no changes
+
+
+TestCase 12 - Unsubscribe Special Club newsletter.
+
+    1. Unsubscribe Special Club newsletter
+    2. Verify of success toast message
+
+
+TestCase 13 - Unsubscribe rossmann.pl newsletter, cancel confirmation.
+
+    1. Unsubscribe rossmann.pl newsletter but cancel confirm in confirmation window
+    2. Verify no changes
+
+
+TestCase 14 - Unsubscribe rossmann.pl newsletter.
+
+    1. Unsubscribe rosmann.pl newsletter
+    2. Verify of success toast message
+
+
+TestCase 15 - Resignation from the Rossmann Club, cancel confirmation.
+
+    1. Resign from the RossmannClub program but cancel confirm in confirmation window
+    2. Verify no changes 
+
+# Payments tab:
+
+Preconditions:
+1. Navigate to url 'www.rossmann.pl/logowanie'
+
+
+TestCase 1 - Sending a blank form for adding a payment card.
+
+    1. Log in with empty user account
+    2. Go to the Profile -> Payments tab -> Card -> Add new card
+    3. Verify visibility of fields: 'Card number', 'MM/RR' and 'CVV'
+    4. Add card with blank fields
+    5. Verify error toast message

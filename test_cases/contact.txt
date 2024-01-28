@@ -1,0 +1,60 @@
+# Contact Page:
+
+Preconditions:
+1. Navigate to url 'www.rossmann.pl/kontakt'
+
+
+TestCase 1 - Page loads correctly.
+
+    1. Verify visibility of map, company/contact information
+    2. Check content of company information   
+
+
+TestCase 2 - Validation of email, phone number and message field.
+
+    1. Send blank form
+    2. Verify error messages (email, message, captcha)
+    3. Type:
+        - letter in email field
+        - digit in phone number field
+        - <19 characters in message field
+    4. Send the form
+    5. Verify error messages (phone number, email, message)
+
+
+TestCase 3 - Filling out the contact form.
+
+    1. Choose category of message: "Klub Rossmann" 
+    2. Type values into required fields
+    3. Send the form
+    4. Verify only captcha error message
+
+
+# Request category - Stationary drugstore:
+
+Preconditions:
+1. Navigate to url 'www.rossmann.pl/kontakt'
+
+
+TestCase 1 - Verify "Numer karty klubu" field in "Klub Rossmann" category.
+
+    1. Choose category of message: "Drogeria stacjonarna" and "Klub Rossmann" 
+    2. Test validation of the field "rossmann club card number":
+        - empty
+        - letter
+        - too short value (<13 char.)
+        - too long value (>13 char.)
+    3. Type 13 char. long value and send form
+    4. Verify no error message in "Numer karty klubu" field
+    
+
+TestCase 2 - Verify "Numer karty Programu Rossnę!" field in "Program Rossnę!" category.
+
+    1. Choose category of message: "Drogeria stacjonarna" and "Program Rossnę!" 
+    2. Test validation of the field "rossne club card number":
+        - empty
+        - letter
+        - too short value (<13 char.)
+        - too long value (>13 char.)
+    3. Type 13 char. long value and send form
+    4. Verify no error message in "Numer karty Programu Rossnę!" field

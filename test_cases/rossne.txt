@@ -1,0 +1,74 @@
+# Rossne Page tests:
+
+Preconditions:
+1. Navigate to url 'www.rossmann.pl/rossne'
+
+
+TestCase 1 - The Rossnę! page - appearance.
+
+    1. Verify content of headers in Top tile and Benefit module
+    2. Verify visibility of 3 photos and text under photos in 'Program Rossnę! jest dla:' module
+    3. Verifi visibility of Rossne social module, Czyściochowa akademia module and FAQ
+
+
+#Rossne Page redirects - Top tile:
+
+Preconditions:
+1. Navigate to url 'www.rossmann.pl/rossne'
+2. Focus only on 4 boxes under baner 
+
+
+TestCase 1 - Redirecting to the Rossnę! promotion.
+
+    1. Click the first box (Promotions)
+    2. Verify url
+    3. Verify that 'Promocje Rossnę!' checkbox in Filters is checked
+    4. Verify display of omnibus info on all products
+
+
+TestCase 2 - Redirecting to the "Oferty specjalne" page.
+
+    1. Click the second box (Benefits)
+    2. Verify url and page header
+    3. Verify visibility of 3 products img
+    4. Verifi visibility of Rossne social module, Czyściochowa akademia module and FAQ
+
+
+TestCase 3 - Redirecting to the "Stera wiedzy" page.
+
+    1. Click the third box (Knowledge zone)
+    2. Verify url and page header
+    3. Verifi visibility of Rossne social module, Czyściochowa akademia module and FAQ
+
+
+TestCase 4 - Redirecting to the "Czyściochowo" page.
+
+    1. Click the fourth box (Czyściochowo)
+    2. Verify url and page header
+    3. Verify visibility of Rossne social module, Czyściochowa akademia module and FAQ
+
+
+# Rossne Page redirections - Benefits module:
+
+Preconditions:
+1. Navigate to url 'www.rossmann.pl/rossne'
+2. Focus only on section "Dla dziecka i rodzica"
+
+
+TestCase 1 - Redirecting to the "Benefity" page.
+
+    1. Click the btn in Benefits section
+    2. Verify url
+    
+
+TestCase 2 - Redirecting to the "Stera wiedzy" page.
+
+    1. Click the btn in "Stera wiedzy" section
+    2. Verify url 
+    
+
+TestCase 3 - Redirecting to the "Czyściochowo" page.
+
+    1. Click the btn in "Czyściowocho" section
+    2. Verify url 
+   
