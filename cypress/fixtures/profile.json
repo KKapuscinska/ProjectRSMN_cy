@@ -43,10 +43,9 @@
     "resignsBtn": "Rezygnuję",
     "checkboxValidation": "Zaznaczenie tego pola jest wymagane",
     
-    "emptyPassFieldValidation": "Proszę podaj hasło.",
-    "notMatchingPassValidation": "Hasła nie są zgodne.",
-    "incorrectPassLengthValidation": "Hasło musi zawierać od 8 do 64 znaków.",
-    "incorrectPassValidation": "Hasło powinno zawierać przynajmniej 1 cyfrę, 1 literę i mieć długość od 8 do 64 znaków.'",
+    "emptyPassFieldValidation": "  Proszę podaj hasło.",
+    "notMatchingPassValidation": "  Hasła nie są zgodne.",
+    "incorrectPassValidation": "  Hasło musi zawierać od 8 do 64 znaków, przynajmniej jedną cyfrę i jedną wielką literę.'",
     
     "removeEmailToast": "Usunięcie adresu e-mail zostało przyjęte do realizacji.",
     "subscribeToRossneNewsletterToast": "Pomyślnie zapisano na newsletter Rossnę!",
