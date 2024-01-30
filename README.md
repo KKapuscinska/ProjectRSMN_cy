@@ -7,7 +7,7 @@ Welcome to the "ProjectRSMN" repository! This project aims to create and execute
 The main goal of this project is to improve my proficiency in test automation by utilizing the powerful **Cypress** testing framework. 
 It has been developed solely by me, showcasing my skills and expertise in test automation. :trophy:
 
-[![TestCases](https://img.shields.io/badge/Test%20Cases-04C38E.svg)](https://github.com/KKapuscinska/ProjectRSMN_se/tree/main/test_cases)
+[![TestCases](https://img.shields.io/badge/Test%20Cases-04C38E.svg)](https://github.com/KKapuscinska/ProjectRSMN_cy/tree/main/test_cases)
 
 
 
