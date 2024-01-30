@@ -7,13 +7,11 @@ Welcome to the "ProjectRSMN" repository! This project aims to create and execute
 The main goal of this project is to improve my proficiency in test automation by utilizing the powerful **Cypress** testing framework. 
 It has been developed solely by me, showcasing my skills and expertise in test automation. :trophy:
 
+[![TestCases](https://img.shields.io/badge/Test%20Cases-04C38E.svg)](https://github.com/KKapuscinska/ProjectRSMN_se/tree/main/test_cases)
 
-**[Test scenarios :mechanical_arm:](https://github.com/KKapuscinska/CypressAutomationProject/tree/main/test_cases)** 
 
 
-### How to Install framework and run tests 
-
-**[Cypress documentation](https://docs.cypress.io/guides/getting-started/installing-cypress)**
+### How to run tests 
 
 ```bash
 # launch the cypress test runner
